@@ -1,0 +1,256 @@
+/* Style for our header texts
+	* --------------------------------------- */
+h1 {
+    font-size: 5em;
+    font-family: arial, helvetica;
+    color: #fff;
+    margin: 0;
+}
+
+.intro p {
+    color: #fff;
+}
+
+/* Centered texts in each section
+* --------------------------------------- */
+.section {
+    text-align: center;
+}
+
+/* Bottom menu
+* --------------------------------------- */
+#infoMenu li a {
+    color: #fff;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.form-control-dark {
+    border-color: var(--bs-gray);
+}
+
+.form-control-dark:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+}
+
+.text-small {
+    font-size: 85%;
+}
+
+.dropdown-toggle {
+    outline: 0;
+}
+
+#section3 {
+    background-color: lightblue;
+}
+
+.footer-wrap .footer {
+    height: 300px;
+}
+
+.header {
+    width: 100%;
+    height: 30%;
+    z-index: 9999;
+    position: fixed;
+    display: flex;
+}
+.main_logo {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.main_logo img{
+    width: 200px;
+    height: 110px;
+}
+.main_sns{
+    position: relative;
+    height: 150px;
+    width: 100%;
+    z-index: 1;
+}
+.main_sns ul{
+    width: 160px;
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+.main_sns ul li {
+    margin-right: 20px;
+}
+.main_sns img{
+    width: 30px;
+    height: 30px;
+}
+.main_sns>ul>li:last-child img{
+    width: 30px;
+    height: 30px;
+}
+.main_lang{
+    line-height: 150px;
+    height: 150px;
+    z-index: 1;
+}
+#lang{
+    border: transparent;
+    background-color: transparent;
+}
+.main_menu{
+    flex: 5%;
+    height: 150px;
+    position: relative;
+    z-index: 9;
+}
+.main_menu_inner{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 39%;
+}
+
+.header span img{
+    width: 30px;
+    height: 30px;
+}
+#section0{
+    background-color: #fff !important;
+    background-image: url(/images/section01_bg.jpg);
+    background-repeat: no-repeat;
+}
+input[id="menu"] {
+    display: none;
+}
+#menu{
+    margin-top: 200px;
+    width: 30px;
+    height: 30px;
+}
+
+input[id="menu"]+label {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    display: block;
+    top: 23%;
+    float: right;
+    right: 50px;
+    cursor: pointer;
+    z-index: 9999;;
+}
+
+/*
+id="menu"가 체크 되었을 때 인접한 라벨의 z-index
+*/
+input[id="menu"]:checked+label{
+    z-index: 10;
+}
+
+input[id="menu"]+label span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 30px;
+    transition: all 0.3s;
+    z-index: 10;
+    bottom: 0;
+}
+
+input[id="menu"]+label span:nth-child(1) {
+    top: 0;
+}
+
+input[id="menu"]+label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+input[id="menu"]+label span:nth-child(3) {
+    bottom: 0;
+}
+
+input[id="menu"]:checked+label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    background-color: #00488C;
+}
+
+input[id="menu"]:checked+label span:nth-child(2) {
+    opacity: 0;
+}
+
+input[id="menu"]:checked+label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+    background-color: #00488C;
+}
+.sidebar{
+    background-color: #333;
+    width: 100%;
+    height: 100vh;
+    float: right;
+    top: 0;
+    right: -100%;
+    position: fixed;
+    transition: 0.4s;
+    z-index: 1;
+}
+input[id="menu"]:checked+label+div{
+    right: 0;
+    z-index: 1;
+}
+
