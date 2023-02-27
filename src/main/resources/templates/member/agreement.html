@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Agreement</title>
+<link rel="stylesheet" th:href="@{/css/agreement.css}">
+</head>
+<body>
+    <div layout:fragment="content" class="all">
+        <div class="membership">
+            <div class="title_membership">
+                <span>회원가입</span>
+            </div>
+            <div class="serviceck">
+                <p>서비스이용약관</p>
+            </div>
+            <div class="content">
+                
+            </div>
+            <input type="checkbox" class="ckbox"><span>동의</span>
+            <div class="serviceck">
+                <p>서비스이용약관</p>
+            </div>
+            <div class="content">
+                
+            </div>
+            <input type="checkbox" class="ckbox"><span>동의</span>
+            
+            <ul class="cp">
+                <li class="com"><a href="#">기업회원가입</a></li>
+                <li class="per"><a href="#">개인회원가입</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
