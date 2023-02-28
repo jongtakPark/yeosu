@@ -10,12 +10,12 @@ public class MemberController {
 	//로그인창
 	@GetMapping(value="/login")
 	public String login() {
-		return "/member/loginForm";
+		return "member/loginForm";
 	}
 	//이용약관 동의
 	@GetMapping(value="/agreement")
 	public String agreement() {
-		return "/member/agreement";
+		return "member/agreement";
 	}
 	//기업 회원가입
 	@GetMapping(value="/company")
@@ -27,4 +27,5 @@ public class MemberController {
 	public String personalSignUp() {
 		return "member/personalSignUp";
 	}
+	
 }

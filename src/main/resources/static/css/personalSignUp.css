@@ -4,9 +4,9 @@
     
     .main_membership{
         width: 60%;
-        height: 619px;
+        height: 669px;
         margin: auto;
-        margin-top : 100px;
+        margin-top : 50px;
     }
     
     .title_membership{
@@ -20,49 +20,49 @@
         margin-top: 15px;
     }
     
-    .com_a{
+    .per_a{
         width: 90%;
         height: 50px;
         margin: auto;
         margin-top: 40px;
     }
     
-    .com_b{
+    .per_c{
         width: 90%;
         height: 50px;
         margin: auto;
         margin-top: 5px;
     }
     
-    .com_c{
+    .per_d{
         width: 90%;
         height: 50px;
         margin: auto;
         margin-top: 5px;
     }
     
-    .com_d{
+    .per_e{
         width: 90%;
         height: 50px;
         margin: auto;
         margin-top: 5px;
     }
     
-    .com_e{
+    .per_f{
         width: 90%;
         height: 50px;
         margin: auto;
         margin-top: 5px;
     }
     
-    .com_f{
+    .per_g{
         width: 90%;
         height: 50px;
         margin: auto;
         margin-top: 5px;
     }
     
-    .com_id{
+    .per_id{
         position: relative;
         background-color: #E6E6E6;
         float: left;
@@ -74,7 +74,7 @@
         margin-top: 10px;
     }
     
-    .com_tex{
+    .per_tex{
         width: 30%;
         height: 30px;
         margin-top: 10px;
@@ -83,7 +83,7 @@
         float: left;
     }
     
-    .com_id_ck{
+    .per_id_ck{
         position: absolute;
         width: 5%;
         height: 30px;
@@ -95,7 +95,7 @@
         line-height: 30px;
     }
     
-    .com_pw{
+    .per_pw{
         position: relative;
         background-color: #E6E6E6;
         float: left;
@@ -107,7 +107,7 @@
         margin-top: 10px;
     }
     
-    .com_pw_ck{
+    .per_pw_ck{
         position: relative;
         background-color: #E6E6E6;
         float: left;
@@ -119,7 +119,7 @@
         margin-top: 10px;
     }
     
-    .com_mail{
+    .per_mail{
         position: relative;
         background-color: #E6E6E6;
         float: left;
@@ -131,7 +131,7 @@
         margin-top: 10px;
     }
     
-    .com_mail_send{
+    .per_mail_send{
         position: absolute;
         width: 5%;
         height: 30px;
@@ -144,7 +144,7 @@
         line-height: 30px;
     }
     
-    .com_mail_a{
+    .per_mail_a{
         position: relative;
         background-color: white;
         float: left;
@@ -156,7 +156,7 @@
         margin-top: 10px;
     }
     
-    .com_mail_ck{
+    .per_mail_ck{
         position: absolute;
         width: 5%;
         height: 30px;
@@ -169,7 +169,7 @@
         line-height: 30px;
     }
     
-    .com_tel{
+    .per_tel{
         position: relative;
         background-color: #E6E6E6;
         float: left;
