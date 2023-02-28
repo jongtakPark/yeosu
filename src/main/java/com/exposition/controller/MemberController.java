@@ -27,5 +27,4 @@ public class MemberController {
 	public String personalSignUp() {
 		return "member/personalSignUp";
 	}
-	
 }

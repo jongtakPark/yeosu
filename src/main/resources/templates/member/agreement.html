@@ -8,7 +8,7 @@ layout:decorate="~{layouts/layout}">
 <link rel="stylesheet" th:href="@{/css/agreement.css}">
 </head>
 <body>
-    <div layout:fragment="content" class="all">
+    <div layout:fragment="content">
         <div class="membership">
             <div class="title_membership">
                 <span>회원가입</span>
@@ -16,22 +16,23 @@ layout:decorate="~{layouts/layout}">
             <div class="serviceck">
                 <p>서비스이용약관</p>
             </div>
-            <div class="content">
+            <div class="content1">
                 
             </div>
-            <input type="checkbox" class="ckbox"><span>동의</span>
+            <input type="checkbox" id="chbox1" class="ckbox"><span>동의</span>
             <div class="serviceck">
                 <p>서비스이용약관</p>
             </div>
-            <div class="content">
+            <div class="content1">
                 
             </div>
-            <input type="checkbox" class="ckbox"><span>동의</span>
+            <input type="checkbox" id="chbox2" class="ckbox"><span>동의</span>
             
             <ul class="cp">
-                <li class="com"><a href="#">기업회원가입</a></li>
-                <li class="per"><a href="#">개인회원가입</a></li>
+                <li class="com"><a href="#" id="com">기업회원가입</a></li>
+                <li class="per"><a href="#" id="per">개인회원가입</a></li>
             </ul>
+            <script type="text/javascript" src="/javascript/agreement.js"></script>
         </div>
     </div>
 

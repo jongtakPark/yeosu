@@ -1,24 +1,10 @@
-  * {
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-        list-style: none;
-        color: black;
-    }
-
-    .all {
-        width: 100vw;
-    }
-
-/*  회원가입 기업   */
-    
     span{
         font-weight: bold;
     }
     
     .main_membership{
         width: 60%;
-        height: 550px;
+        height: 619px;
         margin: auto;
         margin-top: 100px;
         

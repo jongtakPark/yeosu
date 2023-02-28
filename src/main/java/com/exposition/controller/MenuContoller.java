@@ -12,4 +12,9 @@ public class MenuContoller {
 	public String direction() {
 		return "introduction/directions";
 	}
+	//전시관소개
+	@GetMapping(value="/exhibition")
+	public String exhibition() {
+		return "introduction/exhibition";
+	}
 }

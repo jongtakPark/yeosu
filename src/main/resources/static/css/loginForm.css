@@ -1,27 +1,14 @@
-    * {
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-        list-style: none;
-        color: black;
-    }
-    
-     .all {
-        width: 100vw;
-    }
-
-/*    로그인 CSS*/
     .main_login{
-/*        border: 1px solid red;*/
         width: 50%;
         margin: auto;
-        margin-top: 100px;
+        margin-top : 100px;
+        height : 619px;
     }
     
     .login_{
         font-size: 40px;
         margin: auto;
-        width: 17%;
+        width: 18%;
     }
     
     .login_id{
@@ -38,26 +25,26 @@
         margin-top: 30px;
     }
     
-    .login{
-        background-color: #E6E6E6;
+    
+    .membership{
+        margin-left: 170px;
+    }
+    
+    .login > button{
+        font-size: 20px;
         width: 40%;
         height: 40px;
         margin-left: 260px;
         margin-top: 30px;
-        text-align: center;
-        line-height: 40px;
-        border-radius: 5px;
     }
     
-    .login > a > span{
-        font-size: 20px;
+    .findlogin{
+        width: 45%;
+        margin-left: 27%;
+        margin-top: 10px;
     }
     
-    .find_idpw{
-        width: 23%;
-        margin-left: 260px;
-    }
-    
-    .membership{
-        margin-left: 160px;
+    .findlogin > span >a{
+        text-decoration: none;
+        color: black;
     }

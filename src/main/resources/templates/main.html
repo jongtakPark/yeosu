@@ -163,7 +163,7 @@
 -->
          <div class="companyMenu">
            <div><a class="companySubMenu" href="#">박람회소개
-               <div><a href="#">전시관안내</a></div>
+               <div><a href="/menu/exhibition">전시관안내</a></div>
                <div><a href="/menu/directions">행사장오시는길</a></div>
                <div><a href="#">포토갤러리</a></div>
                <div><a href="#">여수섬키워드</a></div>
@@ -194,8 +194,10 @@
 	<div id="fullpage">
 
 		<div class="section " id="section0">
-			<div class="intro">
-
+			<div class="intro video">
+				<video data-autoplay muted>
+					<source th:src="@{/video/yeosu.mp4}">
+				</video>
 			</div>
 		</div>
 		<div class="section" id="section1">
