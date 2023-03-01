@@ -1,7 +1,8 @@
 package com.exposition.dto;
 
-import groovyjarjarantlr4.v4.parse.ANTLRParser.prequelConstruct_return;
+import lombok.Data;
 
+@Data
 public class MemberFormDto {
 
     private String mid;

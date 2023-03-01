@@ -37,16 +37,16 @@ public class Member {
 	private Role role;
 	
 	//스프링시큐리티 설정 클래스에(SecurityConfig.java) 등록한 BCryptPasswordEncoder Bean을 파라미터로 넘겨서 비밀번호를 암호화
-	public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
-		Member member = new Member();
-		member.setMid(memberFormDto.getMid());
-		member.setName(memberFormDto.getName());
-		String password = passwordEncoder.encode(memberFormDto.getPassword());
-		member.setPasswoad(password);
-		member.setEmail(memberFormDto.getEmail());
-		member.setAddress(memberFormDto.getAddress());
-		member.setTel(memberFormDto.getTel());
-		member.setRole(Role.USER);
-		return member;
-	}
+//	public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
+//		Member member = new Member();
+//		member.setMid(memberFormDto.getMid());
+//		member.setName(memberFormDto.getName());
+//		String password = passwordEncoder.encode(memberFormDto.getPassword());
+//		member.setPasswoad(password);
+//		member.setEmail(memberFormDto.getEmail());
+//		member.setAddress(memberFormDto.getAddress());
+//		member.setTel(memberFormDto.getTel());
+//		member.setRole(Role.USER);
+//		return member;
+//	}
 }

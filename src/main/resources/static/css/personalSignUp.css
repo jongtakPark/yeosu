@@ -27,6 +27,12 @@
         margin-top: 40px;
     }
     
+    .per_b{
+        width: 90%;
+        height: 50px;
+        margin: auto;
+        margin-top: 5px;
+    }
     .per_c{
         width: 90%;
         height: 50px;
@@ -94,7 +100,17 @@
         text-align: center;
         line-height: 30px;
     }
-    
+    .per_name{
+        position: relative;
+        background-color: #E6E6E6;
+        float: left;
+        text-align: center;
+        line-height: 30px;
+        width: 15%;
+        height: 30px;
+        margin-left: 20%;
+        margin-top: 10px;
+    }
     .per_pw{
         position: relative;
         background-color: #E6E6E6;

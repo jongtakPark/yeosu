@@ -1,9 +1,9 @@
-/*    회원가입*/
+/*    �쉶�썝媛��엯*/
     .membership{
         width: 60%;
-        height: 619px;
+        height: 669px;
         margin: auto;
-        margin-top: 100px;
+        margin-top: 50px;
     }    
     
     .title_membership{
@@ -12,7 +12,7 @@
     }
     
     .serviceck{
-        width: 10%;
+        width: 15%;
         margin-top: 30px;
         margin-left: 15%;
     }
@@ -23,6 +23,7 @@
         margin : auto;
         margin-top: 10px;
         background-color: #A4A4A4;
+        overFlow : auto;
     }
     
     .ckbox{
