@@ -8,9 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.exposition.constant.Role;
-import com.exposition.dto.MemberFormDto;
 
 import lombok.Data;
 
@@ -27,10 +27,11 @@ public class Member {
 	
 	private String mid;
 	private String passwoad;
+	@Transient
+    private String confirmPassword;
 	private String name;
 	@Column(unique=true)
 	private String email;	
-	private String address;
 	private String tel;
 	
 	@Enumerated(EnumType.STRING)

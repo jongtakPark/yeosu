@@ -8,8 +8,7 @@ public class MemberFormDto {
     private String mid;
     private String name;
     private String password;
-    private String passwordCheck;
-    private String address;
+    private String confirmPassword;
     private String email;
     private String tel;
 }
