@@ -10,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.exposition.constant.Role;
+import com.exposition.dto.MemberFormDto;
 
 import lombok.Data;
 
@@ -37,17 +40,16 @@ public class Member {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	
-	//스프링시큐리티 설정 클래스에(SecurityConfig.java) 등록한 BCryptPasswordEncoder Bean을 파라미터로 넘겨서 비밀번호를 암호화
-//	public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
-//		Member member = new Member();
-//		member.setMid(memberFormDto.getMid());
-//		member.setName(memberFormDto.getName());
-//		String password = passwordEncoder.encode(memberFormDto.getPassword());
-//		member.setPasswoad(password);
-//		member.setEmail(memberFormDto.getEmail());
-//		member.setAddress(memberFormDto.getAddress());
-//		member.setTel(memberFormDto.getTel());
-//		member.setRole(Role.USER);
-//		return member;
-//	}
+	//스프링시큐리티 설정 클래스에(SecurityConfig.java) 등록한 BCryptPasswordEncoder Bean으로 파라미터로 넘겨서 비밀번호를 암호화
+	public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
+		Member member = new Member();
+		member.setMid(memberFormDto.getMid());
+		member.setName(memberFormDto.getName());
+		String password = passwordEncoder.encode(memberFormDto.getPassword());
+		member.setPasswoad(password);
+		member.setEmail(memberFormDto.getEmail());
+		member.setTel(memberFormDto.getTel());
+		member.setRole(Role.USER);
+		return member;
+	}
 }
