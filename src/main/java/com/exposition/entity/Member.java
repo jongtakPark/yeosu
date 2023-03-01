@@ -34,7 +34,8 @@ public class Member {
     private String confirmPassword;
 	private String name;
 	@Column(unique=true)
-	private String email;	
+	private String email;
+	
 	private String tel;
 	
 	@Enumerated(EnumType.STRING)
@@ -49,7 +50,7 @@ public class Member {
 		member.setPasswoad(password);
 		member.setEmail(memberFormDto.getEmail());
 		member.setTel(memberFormDto.getTel());
-		member.setRole(Role.USER);
+		member.setRole(Role.ADMIN);
 		return member;
 	}
 }

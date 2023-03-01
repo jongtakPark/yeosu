@@ -198,6 +198,7 @@
     }
     
     .regist{
+        display: block;
         background-color: #E6E6E6;
         width: 8%;
         font-size: 20px;
