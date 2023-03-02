@@ -19,16 +19,32 @@
         font-size: 20px;
         margin-top: 15px;
     }
-    .error{
-    	margin-left : 20px;
+    .error_div{
+    	width : 100%;
+    	text-align : center;
     }
-    
+    .error{
+    	display : none;
+		color :red;
+    }
+    .succ_div{
+    	width : 100%;
+    	text-align : center;
+    }
+    .succ{
+    	display : none;
+		color : green;
+    }
+    .fieldError{
+        margin-left: 40%;
+        color: red;
+        font-weight: bold;
+    }
     .per_a{
         width: 90%;
         height: 50px;
         margin: auto;
         margin-top: 40px;
-        background :red;
     }
     
     .per_b{
