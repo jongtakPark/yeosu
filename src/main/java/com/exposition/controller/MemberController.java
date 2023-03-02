@@ -20,11 +20,10 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequestMapping(value="/signup")
 @RequiredArgsConstructor
-
 public class MemberController {
 	
-	private MemberService memberService;
-	private PasswordEncoder passwordEncoder;
+	private final MemberService memberService;
+	private final PasswordEncoder passwordEncoder;
 	
 	//로그인창으로 이동
 	@GetMapping(value="/login")
