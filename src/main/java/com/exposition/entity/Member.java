@@ -30,12 +30,12 @@ public class Member {
 	
 	private String mid;
 	private String passwoad;
+	
 	@Transient
     private String confirmPassword;
 	private String name;
 	@Column(unique=true)
-	private String email;
-	
+	private String email;	
 	private String tel;
 	
 	@Enumerated(EnumType.STRING)
@@ -47,6 +47,7 @@ public class Member {
 		member.setMid(memberFormDto.getMid());
 		member.setName(memberFormDto.getName());
 		String password = passwordEncoder.encode(memberFormDto.getPassword());
+		
 		member.setPasswoad(password);
 		member.setEmail(memberFormDto.getEmail());
 		member.setTel(memberFormDto.getTel());

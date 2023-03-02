@@ -17,4 +17,19 @@ public class MenuContoller {
 	public String exhibition() {
 		return "introduction/exhibition";
 	}
+	//국민아이디어
+		@GetMapping(value="/idea")
+		public String idea() {
+			return "board/idea";
+		}
+	//자원봉사게시판
+		@GetMapping(value="/volunteer")
+		public String volunteer() {
+			return "board/volunteer";
+		}
+	//관람후기
+		@GetMapping(value="/reviewshow")	
+		public String reviewshow() {
+			return "board/reviewshow";
+				}		
 }

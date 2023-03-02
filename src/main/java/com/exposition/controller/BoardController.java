@@ -12,4 +12,19 @@ public class BoardController {
 	public String survey() {
 		return "board/survey";
 	}
+	//국민아이디어
+		@GetMapping(value="/idea")
+		public String idea() {
+			return "board/idea";
+		}
+	//국민아이디어
+		@GetMapping(value="/volunteer")
+		public String volunteer() {
+			return "board/volunteer";	
+			}	
+    //관람후기
+		@GetMapping(value="/reviewshow")	
+		public String reviewshow() {
+			return "board/reviewshow";
+				}	
 }
