@@ -153,3 +153,16 @@ const autoHyphen = (target) => {
         obj.show();
     }
 
+//유효성 검사 이후 나온 error 메시지 감추기
+$("#mid").focus(function(){
+	$("#fieldErrorMid").hide()
+});
+$("#password").focus(function(){
+	$("#fieldErrorPw").hide()
+});
+$("#name").focus(function(){
+	$("#fieldErrorName").hide()
+});
+$("#email").focus(function(){
+	$("#fieldErrorEmail").hide()
+});

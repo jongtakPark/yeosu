@@ -23,19 +23,19 @@ layout:decorate="~{layouts/layout}">
                  <div><input  class="per_tex" name="mid" id="mid" th:field="*{mid}" type="text" placeholder="  아이디를 입력해주세요"></div>
                  <div class="per_id_ck"><span><a href="#">중복검사</a></span></div>
              </div>
-         <!--     <p th:if="${#fields.hasErrors('mid')}"  th:errors="*{mid}" class="fieldError">Incorrect data</p>   -->
+           <p th:if="${#fields.hasErrors('mid')}"  th:errors="*{mid}" class="fieldError" id="fieldErrorMid">Incorrect data</p>  
              <div class="error_div"><span class="error" id="midMsg" ></span></div>
              <div class="per_b">
                  <div class="per_name"><span>이름</span></div>
                  <div><input class="per_tex" type="text" name="name" id="name" th:field="*{name}" placeholder="  이름을 입력해주세요"></div>
              </div>
-         <!--    <p th:if="${#fields.hasErrors('name')}"  th:errors="*{name}" class="fieldError">Incorrect data</p>  -->
+      <p th:if="${#fields.hasErrors('name')}"  th:errors="*{name}" class="fieldError" id="fieldErrorName">Incorrect data</p> 
              <div class="error_div"><span class="error" id="nameMsg" ></span></div>
             <div class="per_c">
                  <div class="per_pw"><span>비밀번호</span></div>
                  <div><input class="per_tex" type="password" name="password" id="password" th:field="*{password}" placeholder="  비밀번호을 입력해주세요"></div>
              </div>
-        <!--     <p th:if="${#fields.hasErrors('password')}"  th:errors="*{password}" class="fieldError">Incorrect data</p>  -->
+         <p th:if="${#fields.hasErrors('password')}"  th:errors="*{password}" class="fieldError" id="fieldErrorPw">Incorrect data</p> 
              <div class="error_div"><span class="error" id="passwordMsg" ></span></div>
              <div class="per_d">
                  <div class="per_pw_ck"><span>비밀번호확인</span></div>
@@ -48,7 +48,7 @@ layout:decorate="~{layouts/layout}">
                  <div><input class="per_tex" name="email" id="email" th:field="*{email}" placeholder="  이메일을 입력해주세요"></div>
                  <div class="per_mail_send"><span><a href="#">인증번호 발송</a></span></div>
              </div>
-        <!--      <p th:if="${#fields.hasErrors('email')}"  th:errors="*{email}" class="fieldError">Incorrect data</p>  -->
+       <p th:if="${#fields.hasErrors('email')}"  th:errors="*{email}" class="fieldError" id="fieldErrorEmail">Incorrect data</p>  
              <div class="error_div"><span class="error" id="emailMsg" ></span></div>
              <div class="per_f">
                 <div class="per_mail_a"><span></span></div>
