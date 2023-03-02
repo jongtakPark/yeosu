@@ -21,10 +21,11 @@ layout:decorate="~{layouts/layout}">
              <div class="per_a">
                  <div class="per_id"><span>아이디</span></div>
                  <div><input  class="per_tex" name="mid" id="mid" th:field="*{mid}" type="text" placeholder="  아이디를 입력해주세요"></div>
-                 <div class="per_id_ck"><span><a href="#">중복검사</a></span></div>
+                 <div class="per_id_ck"><span><a href="#" class="mid_ck">중복검사</a></span></div>
              </div>
            <p th:if="${#fields.hasErrors('mid')}"  th:errors="*{mid}" class="fieldError" id="fieldErrorMid">Incorrect data</p>  
              <div class="error_div"><span class="error" id="midMsg" ></span></div>
+             <div class="succ_div"><span class="succ" id="midMsg2" ></span></div>
              <div class="per_b">
                  <div class="per_name"><span>이름</span></div>
                  <div><input class="per_tex" type="text" name="name" id="name" th:field="*{name}" placeholder="  이름을 입력해주세요"></div>

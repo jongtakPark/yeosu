@@ -166,3 +166,35 @@ $("#name").focus(function(){
 $("#email").focus(function(){
 	$("#fieldErrorEmail").hide()
 });
+
+
+//ajax를 이용한 아이디 중복검사
+$(".mid_ck").click(function(){
+	var eMsg = $("#midMsg");
+	var eMsg2 = $("#midMsg2");
+	var mid = $("#mid").val();
+	if(mid==""){
+	showErrorMsg(eMsg,"필수 정보입니다.");
+	return false;
+	}
+$.ajax({
+	type: "get",
+	url: "/signup/exists",
+	data : { "mid" : mid },
+	dataType : "JSON",
+	success: function(result){
+		if(result == false){
+		showSuccMsg(eMsg2,"사용할 수 있는 아이디입니다.");
+		eMsg.hide();
+		}
+		else{
+			showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
+			eMsg3.hide();
+		}
+		},
+	error : function(){
+		alert("에러발생");
+	}
+	});
+});
+	
