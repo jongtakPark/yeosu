@@ -19,12 +19,16 @@
         font-size: 20px;
         margin-top: 15px;
     }
+    .error{
+    	margin-left : 20px;
+    }
     
     .per_a{
         width: 90%;
         height: 50px;
         margin: auto;
         margin-top: 40px;
+        background :red;
     }
     
     .per_b{

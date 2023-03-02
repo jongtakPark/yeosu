@@ -1,20 +1,18 @@
 package com.exposition.controller;
 
-import java.lang.ProcessBuilder.Redirect;
-
 import javax.validation.Valid;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.exposition.dto.MemberFormDto;
 import com.exposition.entity.Member;
-import com.exposition.repository.MemberRepository;
 import com.exposition.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequestMapping(value="/signup")
 @RequiredArgsConstructor
+
 public class MemberController {
 	
 	private MemberService memberService;
@@ -50,6 +49,7 @@ public class MemberController {
 	}
 	//일반회원가입
 	@PostMapping(value="/new")
+	@Validated
 	public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
 			return "member/personalSignUp";
