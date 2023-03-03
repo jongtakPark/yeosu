@@ -181,15 +181,15 @@ $.ajax({
 	type: "get",
 	url: "/signup/exists",
 	data : { "mid" : mid },
-	dataType : "JSON",
+	contentType: "application/json",
 	success: function(result){
-		if(result == false){
+		if(result.result == false){
 		showSuccMsg(eMsg2,"사용할 수 있는 아이디입니다.");
 		eMsg.hide();
 		}
 		else{
 			showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
-			eMsg3.hide();
+			eMsg2.hide();
 		}
 		},
 	error : function(){

@@ -11,7 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -75,8 +74,9 @@ public class MemberController{
 		
 		return "redirect:/";
 	}
-	//아이디 중복검사
+	//ajax를 이용한 아이디 중복검사
 	@GetMapping(value="/exists")
+	@ResponseBody
 	public HashMap<String, Object> checkMidDuplicate(String mid){
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("result", memberService.checkMidDuplicate(mid));

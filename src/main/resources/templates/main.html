@@ -104,14 +104,17 @@
 		</label>
 		<div class="sidebar">
 			<div class="container">
-        <div class="login">
+        <div class="login" sec:authorize="isAnonymous()">
             <span><a href="/signup/login">로그인</a></span>
+        </div>
+		<div class="logout" sec:authorize="isAuthenticated()">
+            <span><a href="/signup/login">로그아웃</a></span>
         </div>
         <div class="logo">
             <img src="/images/logo.png">
         </div>
-<!--
-        <div class="memberMenu">
+
+        <div class="memberMenu" sec:authorize="isAnonymous() || hasAnyAuthority('ROLE_USER') || hasAnyAuthority('ROLE_VOLUNTEER')">
             <div><a class="memberSubMenu" href="#">박람회소개
                 <div><a href="#">전시관안내</a></div>
                 <div><a href="/menu/directions">행사장오시는길</a></div>
@@ -128,12 +131,12 @@
                 <div><a href="#">관람후기</a></div>
                 <div><a href="#">국민아이디어</a></div>
                 <div><a href="board/survey">설문게시판</a></div>
-                <div><a href="#">자원봉사게시판</a></div>
+                <div sec:authorize="hasAnyAuthority('ROLE_VOLUNTEER')"><a href="#">자원봉사게시판</a></div>
                 </a></div>
         </div>
--->
-<!--
-        <div class="adminMenu">
+
+
+        <div class="adminMenu" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
            <div><a class="adminSubMenu" href="#">박람회소개
                <div><a href="#">전시관안내</a></div>
                <div><a href="/menu/directions">행사장오시는길</a></div>
@@ -160,8 +163,8 @@
                <div><a href="#">자원봉사게시판</a></div>
            </a></div>
         </div> 
--->
-         <div class="companyMenu">
+
+         <div class="companyMenu" sec:authorize="hasAnyAuthority('ROLE_COMPANY')">
            <div><a class="companySubMenu" href="#">박람회소개
                <div><a href="/menu/exhibition">전시관안내</a></div>
                <div><a href="/menu/directions">행사장오시는길</a></div>
@@ -178,7 +181,7 @@
                <div><a href="#">관람후기</a></div>
                <div><a href="#">국민아이디어</a></div>
                <div><a href="board/survey">설문게시판</a></div>
-               <div><a href="#">자원봉사게시판</a></div>
+               <div sec:authorize="hasAnyAuthority('ROLE_VOLUNTEER')"><a href="#">자원봉사게시판</a></div>
            </a></div>
            <div><a class="companySubMenu2" href="#">업체등록</a></div>
         </div> 
