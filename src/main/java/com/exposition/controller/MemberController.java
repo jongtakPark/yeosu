@@ -83,4 +83,10 @@ public class MemberController{
 		return map;
 	}
 
+	// 아이디/비밀번호 찾기창으로 이동
+	@GetMapping(value="/findidpw")
+	public String findIdPw() {
+		return "member/findIdPw";
+	}
+	
 }
