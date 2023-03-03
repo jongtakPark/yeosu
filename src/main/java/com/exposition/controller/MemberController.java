@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exposition.dto.MemberFormDto;
@@ -30,7 +31,7 @@ public class MemberController{
 	private final PasswordEncoder passwordEncoder;
 	
 	//로그인창으로 이동
-	@GetMapping(value="/login")
+	@RequestMapping(value="/login", method= {RequestMethod.POST, RequestMethod.GET})
 	public String login() {
 		return "member/loginForm";
 	}
