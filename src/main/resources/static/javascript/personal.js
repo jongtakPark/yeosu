@@ -28,15 +28,22 @@ $("#name").blur(function(){
 		checkName();	
 	});
 	
-    function checkName(){
-		
+   function checkName(){
+		var name1 = $("#name");
 		var name = $("#name").val();
 		var eMsg = $("#nameMsg");
 		
 		if(name==""){
 			showErrorMsg(eMsg,"필수 정보입니다.");
 			return false;
-		}    
+		}
+		name1.focusout(function(){
+			if(name!=""){
+				eMsg.hide();
+			} else {
+				showErrorMsg(eMsg,"필수 정보입니다.");
+			}
+		});   
     }
     
 $("#password").blur(function(){
