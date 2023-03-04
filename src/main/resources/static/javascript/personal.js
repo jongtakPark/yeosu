@@ -103,7 +103,6 @@ $("#email").blur(function(){
 		
 		var email = $("#email").val();
 		var eMsg = $("#emailMsg");
-		
 		if(email==""){
 			showErrorMsg(eMsg,"필수 정보입니다.");
 			return false;
@@ -117,6 +116,24 @@ $("#email").blur(function(){
         }
         return true; 
     }
+
+$("#emailCheck").click(function(){
+	var email = $("#email").val();
+	var eMsg = $("#emailMsg");
+	var eMsg2 = $("#emailMsg2");
+	$.ajax({
+            type: "get",
+			url: "/mail/sendmail",
+			data : { "email" : email },
+			success : function(result){
+				showSuccMsg(eMsg2,"인증번호를 입력해주세요.");
+			},
+			error : function(){
+				showErrorMsg(eMsg,"이메일 발송에 실패하였습니다. 이메일 정보를 다시 확인해주세요.");
+			}
+		});
+});
+
     
 $("#tel").blur(function(){
 		checkTel();	

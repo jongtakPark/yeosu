@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.exposition.dto.MemberFormDto;
 import com.exposition.entity.Member;
@@ -31,7 +32,7 @@ public class MemberController{
 	
 	//로그인창으로 이동
 	@RequestMapping(value="/login", method= {RequestMethod.POST, RequestMethod.GET})
-	public String login() {
+	public String login(Model model) {
 		return "member/loginForm";
 	}
 	//로그인 오류시

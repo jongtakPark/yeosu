@@ -1,5 +1,8 @@
 package com.exposition.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -16,11 +20,11 @@ import com.exposition.constant.Role;
 import com.exposition.dto.MemberFormDto;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Table(name="member")
 @Data
-
 public class Member {
 	
 	@Id
@@ -40,6 +44,10 @@ public class Member {
 	
 	@Enumerated(EnumType.STRING)
 	private Role role;
+
+//	@OneToMany(mappedBy = "member")
+//	@ToString.Exclude
+//	List<FreeBoard> freeBoardList = new ArrayList<>();
 	
 	//스프링시큐리티 설정 클래스에(SecurityConfig.java) 등록한 BCryptPasswordEncoder Bean으로 파라미터로 넘겨서 비밀번호를 암호화
 	public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
