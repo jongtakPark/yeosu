@@ -117,7 +117,7 @@ $("#email").blur(function(){
         return true; 
     }
 
-$("#emailCheck").click(function(){
+$("#emailsend").click(function(){
 	var email = $("#email").val();
 	var eMsg = $("#emailMsg");
 	var eMsg2 = $("#emailMsg2");
@@ -133,6 +133,29 @@ $("#emailCheck").click(function(){
 			}
 		});
 });
+
+
+$("#emailcheck").click(function(){
+	var emailcode = $("#emailcode").val();
+	var eMsg = $("#emailCheckMsg");
+	var eMsg2 = $("#emailCheckMsg2");
+	$.ajax({
+		type : "get",
+		url : "/mail/checkcode",
+		data : { "emailcode" : emailcode },
+		success : function(result){
+			if(result == true) {
+				showSuccMsg(eMsg2,"인증번호가 일치합니다");
+			} else {
+				showErrorMsg(eMsg,"인증번호가 일치하지 않습니다.");
+			}
+		},
+		error : function(){
+			showErrorMsg(eMsg,"먼저 인증번호를 발송해주세요.");
+		}
+	});
+});
+
 
     
 $("#tel").blur(function(){

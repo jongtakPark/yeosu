@@ -1,10 +1,11 @@
 package com.exposition.controller;
 
-import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exposition.service.MailService;
@@ -24,5 +25,13 @@ public class MailController {
 	public String mailAuth(String email) throws Exception {
 	    String authKey = mailService.sendAuthMail(email); 
 	    return authKey;
+	}
+	
+	@GetMapping(value="/checkcode")
+	@ResponseBody
+	public HashMap<String, Object> codeCheck(@RequestParam("emailcode") String emailcode) {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("result", mailService.checkCode(emailcode));
+		return map;	
 	}
 }
