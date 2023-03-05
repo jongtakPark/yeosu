@@ -116,7 +116,7 @@
 
         <div class="memberMenu" sec:authorize="isAnonymous() || hasAnyAuthority('ROLE_USER') || hasAnyAuthority('ROLE_VOLUNTEER')">
             <div><a class="memberSubMenu" href="#">박람회소개
-                <div><a href="#">전시관안내</a></div>
+                <div><a href="/menu/exhibition">전시관안내</a></div>
                 <div><a href="/menu/directions">행사장오시는길</a></div>
                 <div><a href="#">포토갤러리</a></div>
                 <div><a href="#">여수섬키워드</a></div>
@@ -138,7 +138,7 @@
 
         <div class="adminMenu" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
            <div><a class="adminSubMenu" href="#">박람회소개
-               <div><a href="#">전시관안내</a></div>
+               <div><a href="/menu/exhibition">전시관안내</a></div>
                <div><a href="/menu/directions">행사장오시는길</a></div>
                <div><a href="#">포토갤러리</a></div>
                <div><a href="#">여수섬키워드</a></div>
