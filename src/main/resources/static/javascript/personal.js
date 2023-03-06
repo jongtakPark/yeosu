@@ -231,26 +231,35 @@ $(".mid_ck").click(function(){
 	showErrorMsg(eMsg,"필수 정보입니다.");
 	return false;
 	}
-$.ajax({
-	type: "get",
-	url: "/signup/exists",
-	data : { "mid" : mid },
-	contentType: "application/json",
-	success: function(result){
-		if(result.result == false){
-		showSuccMsg(eMsg2,"사용할 수 있는 아이디입니다.");
-		eMsg.hide();
-		submitId = true;
-		}
-		else{
-			showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
-			eMsg2.hide();
-		}
-		},
-	error : function(){
-		alert("에러발생");
-	}
-	});
+	var isID = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
+        if (!isID.test(mid)) {
+            showErrorMsg(eMsg,"5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.");
+            return false;
+        } else {
+            eMsg.hide();
+            $.ajax({
+				type: "get",
+				url: "/signup/exists",
+				data : { "mid" : mid },
+				contentType: "application/json",
+					success: function(result){
+						if(result.result == false){
+							showSuccMsg(eMsg2,"사용할 수 있는 아이디입니다.");
+							eMsg.hide();
+						submitId = true;
+						}
+					else{
+							showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
+							eMsg2.hide();
+					}
+					},
+					error : function(){
+						alert("에러발생");
+					}
+				});
+        }
+        return true;
+
 });
 	
 $("#regist").click(function submitCheck(){
