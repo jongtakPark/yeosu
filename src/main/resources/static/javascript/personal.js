@@ -1,4 +1,8 @@
 //회원가입 유효성 검사
+var submitId = false;
+var submitPw = false;
+var submitEmail = false;
+
 
 $("#mid").blur(function(){
 		checkId();	
@@ -90,6 +94,7 @@ $("#password2").blur(function(){
         } else {
             showSuccMsg(eMsg2,"비밀번호가 일치합니다.");
             eMsg1.hide();
+            submitPw = true;
             return false;
         }
         return true; 
@@ -144,8 +149,10 @@ $("#emailcheck").click(function(){
 		url : "/mail/checkcode",
 		data : { "emailcode" : emailcode },
 		success : function(result){
-			if(result == true) {
+			if(result.result == true) {
 				showSuccMsg(eMsg2,"인증번호가 일치합니다");
+				submitEmail = true;
+				eMsg.hide();
 			} else {
 				showErrorMsg(eMsg,"인증번호가 일치하지 않습니다.");
 			}
@@ -224,24 +231,57 @@ $(".mid_ck").click(function(){
 	showErrorMsg(eMsg,"필수 정보입니다.");
 	return false;
 	}
-$.ajax({
-	type: "get",
-	url: "/signup/exists",
-	data : { "mid" : mid },
-	contentType: "application/json",
-	success: function(result){
-		if(result.result == false){
-		showSuccMsg(eMsg2,"사용할 수 있는 아이디입니다.");
-		eMsg.hide();
-		}
-		else{
-			showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
-			eMsg2.hide();
-		}
-		},
-	error : function(){
-		alert("에러발생");
-	}
-	});
+	var isID = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
+        if (!isID.test(mid)) {
+            showErrorMsg(eMsg,"5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.");
+            return false;
+        } else {
+            eMsg.hide();
+            $.ajax({
+				type: "get",
+				url: "/signup/exists",
+				data : { "mid" : mid },
+				contentType: "application/json",
+					success: function(result){
+						if(result.result == false){
+							if (!isID.test(mid)) {
+            					showErrorMsg(eMsg,"5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.");
+            					return false;
+       						 } else{
+							showSuccMsg(eMsg2,"사용할 수 있는 아이디입니다.");
+							eMsg.hide();
+							submitId = true;
+							}
+						}
+					else{
+							showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
+							eMsg2.hide();
+					}
+					},
+					error : function(){
+						alert("에러발생");
+					}
+				});
+        }
+        return true;
+
 });
 	
+$("#regist").click(function submitCheck(){
+	var eMsg = $("#midMsg");
+	if(submitId == false){
+		showErrorMsg(eMsg,"아이디 중복검사를 해주세요.");
+		return false;
+	}
+	var eMsg1 = $("#passwordMsg1");
+	if(submitPw == false){
+		showErrorMsg(eMsg1,"비밀번호가 일치되어야 합니다.");
+		return false;
+	}
+	var eMsg = $("#emailCheckMsg");
+	if(submitEmail ==false){
+		showErrorMsg(eMsg,"이메일 인증이 되어야 합니다.");
+		return false;
+	}
+	return true;
+});
