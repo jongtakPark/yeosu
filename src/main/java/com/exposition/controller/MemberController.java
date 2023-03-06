@@ -1,8 +1,14 @@
 package com.exposition.controller;
 
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.exposition.dto.MemberFormDto;
 import com.exposition.entity.Member;
@@ -20,15 +27,20 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequestMapping(value="/signup")
 @RequiredArgsConstructor
-
-public class MemberController {
+public class MemberController{
 	
-	private MemberService memberService;
-	private PasswordEncoder passwordEncoder;
+	private final MemberService memberService;
+	private final PasswordEncoder passwordEncoder;
 	
 	//로그인창으로 이동
-	@GetMapping(value="/login")
+	@RequestMapping(value="/login", method= {RequestMethod.POST, RequestMethod.GET})
 	public String login() {
+		return "member/loginForm";
+	}
+	//로그인 오류시
+	@GetMapping(value="/login/error")
+	public String loginError(Model model) {
+		model.addAttribute("loginErrorMsg","아이디 또는 비밀번호를 확인해주세요.");
 		return "member/loginForm";
 	}
 	//이용약관 동의창으로 이동
@@ -65,7 +77,15 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
+	//아이디 중복검사
+	@GetMapping(value="/exists")
+	public HashMap<String, Object> checkMidDuplicate(String mid){
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("result", memberService.checkMidDuplicate(mid));
+		return map;
+	}
 	
 	
-	
+
+
 }

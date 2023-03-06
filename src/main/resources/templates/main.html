@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/examples.css" />
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/mainMenu.css">
+	<link rel="stylesheet" href="/css/swiper.css">
 
 
 
@@ -47,7 +48,6 @@
 		$(document).ready(function () {
 			$('#fullpage').fullpage({
 				anchors: ['firstPage', 'secondPage', '3rdPage'],
-				sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
 				navigation: true,
 				navigationPosition: 'right',
 				// navigationTooltips: ['First page', 'Second page', 'Third and last page'],
@@ -104,9 +104,20 @@
 		</label>
 		<div class="sidebar">
 			<div class="container">
-        <div class="login">
-            <span><a href="/signup/login">로그인</a></span>
-        </div>
+				<div class= "login">
+					<li class="nav-item" sec:authorize="isAnonymous()">
+						<a class="nav-link" href="/signup/login">로그인</a>
+					</li>
+				<div class="logout">
+					<li class="nav-item" sec:authorize="isAuthenticated()">
+						<a class="nav-link" href="/signup/logout">로그아웃</a>
+					</li>
+				</div>
+			</div>
+					
+       
+        
+       
         <div class="logo">
             <img src="/images/logo.png">
         </div>
@@ -202,17 +213,35 @@
 		</div>
 		<div class="section" id="section1">
 			<div class="intro">
-				<h1>Ideal for small screens</h1>
+				<div class="section1_inner">
+					<h2>대한민국 세계 섬 박람회</h2>
+					<h1>2026년 여수에서 개최합니다.</h1>
+				</div>
+				<div class="section1_content">
+					<img src="images/main2.jpg" alt="">
+				</div>
 			</div>
 		</div>
 		<div class="section" id="section2">
 			<div class="intro">
-				<h1>Keep it simple!</h1>
-			</div>
-		</div>
-		<div class="section" id="section3">
-			<div class="intro">
-				<h1>Keep it simple!</h1>
+				<div class="section2_inner">
+				</div>
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="images/ex.jpg" alt=""></div>
+						<div class="swiper-slide">Slide 2</div>
+						<div class="swiper-slide">Slide 3</div>
+						<div class="swiper-slide">Slide 4</div>
+						<div class="swiper-slide">Slide 5</div>
+						<div class="swiper-slide">Slide 6</div>
+					</div>
+
+				</div>
+				<div class="swiper_btn">
+					<h2>박람회</h2>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
 			</div>
 		</div>
 		<div class="section footer-wrap fp-auto-height">
@@ -221,7 +250,20 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
+	<script>
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: 3,
+			spaceBetween: 30,
+			loop: true,
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			
+		});
+	</script>
 
 </body>
 
