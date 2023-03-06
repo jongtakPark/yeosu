@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>freeboard</title>
+<link rel="stylesheet" th:href="@{/css/freeboard.css}">
+</head>
+
+<body>
+<div layout:fragment="content">
+ <div class="subMenu">
+       <ul>
+           <li><a href="#">전시관안내</a></li>
+           <li><a href="#">행사장오시는길</a></li>
+           <li><a href="#">포토갤러리</a></li>
+           <li><a href="#">여수섬키워드</a></li>
+       </ul>
+   </div>
+   <div class="freeboard">
+       <div class="free_title">
+          <div class="title">
+               <span>자유게시판</span>
+           </div>
+       </div>
+         <div class="free_content">
+            <table>
+                <thead>
+                    <tr>
+                        <td>글번호</td>
+                        <td>제목</td>
+                        <td>작성자</td>
+                        <td>작성일</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="board : ${freeboard}">
+                       <td>
+ 							<span th:text="${board.id}"></span>
+  						</td>
+  						<td>
+  							<a  href="#" th:text="${board.title}"></a>
+  						</td>
+  						  <td>
+  							 <span th:text="${board.createdBy}"></span>
+  						</td>
+  						<td>
+  							 <span th:text="${#temporals.format(board.registerTime, 'yyyy-MM-dd HH:mm')}"></span>
+  						</td>
+                    </tr>
+                </tbody>
+            </table> 
+            <div class="write">
+                <a href="/board/boardwrite">글쓰기</a>
+           </div>   
+        </div>
+        
+   </div>
+     
+   
+   <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+ </div>
+    
+</body>
+</html>
