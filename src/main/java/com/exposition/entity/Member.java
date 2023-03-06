@@ -69,7 +69,7 @@ public class Member {
 		member.setConfirmPassword(comfirmPw);
 		member.setEmail(memberFormDto.getEmail());
 		member.setTel(memberFormDto.getTel());
-		member.setRole(Role.ADMIN);
+		member.setRole(Role.USER);
 		return member;
 	}
 }
