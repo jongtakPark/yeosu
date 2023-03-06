@@ -34,7 +34,7 @@ layout:decorate="~{layouts/layout}">
              <div class="error_div"><span class="error" id="nameMsg" ></span></div>
             <div class="per_c">
                  <div class="per_pw"><span>비밀번호</span></div>
-                 <div><input class="per_tex" type="password" name="password" id="password" th:field="*{password}" placeholder="  비밀번호을 입력해주세요"></div>
+                 <div><input class="per_tex" type="password" name="password" id="password" th:field="*{password}" placeholder="  비밀번호를 입력해주세요"></div>
              </div>
          <p th:if="${#fields.hasErrors('password')}"  th:errors="*{password}" class="fieldError" id="fieldErrorPw">Incorrect data</p> 
              <div class="error_div"><span class="error" id="passwordMsg" ></span></div>
@@ -73,4 +73,4 @@ layout:decorate="~{layouts/layout}">
         </div>
       
 </body>
-</html>      
+</html> 

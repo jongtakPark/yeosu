@@ -3,7 +3,7 @@ var submitId = false;
 var submitPw = false;
 var submitEmail = false;
 
-
+//일반회원 아이디
 $("#mid").blur(function(){
 		checkId();	
 	});
@@ -27,6 +27,8 @@ $("#mid").blur(function(){
         }
         return true;
     }
+    
+
    
 $("#name").blur(function(){
 		checkName();	
@@ -255,6 +257,51 @@ $(".mid_ck").click(function(){
 						}
 					else{
 							showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
+							eMsg2.hide();
+					}
+					},
+					error : function(){
+						alert("에러발생");
+					}
+				});
+        }
+        return true;
+
+});
+
+//ajax를 이용한 사업자번호 중복검사
+$(".mid_ck1").click(function(){
+	var eMsg = $("#midMsg");
+	var eMsg2 = $("#midMsg2");
+	var mid = $("#mid").val();
+	if(mid==""){
+	showErrorMsg(eMsg,"필수 정보입니다.");
+	return false;
+	}
+	var isID = /^[0-9]{3}-[0-9]{2}-[0-9]{5}$/;
+        if (!isID.test(mid)) {
+            showErrorMsg(eMsg,"유효한 사업자 번호를 입력 해 주세요.");
+            return false;
+        } else {
+            eMsg.hide();
+            $.ajax({
+				type: "get",
+				url: "/signup/exists1",
+				data : { "mid" : mid },
+				contentType: "application/json",
+					success: function(result){
+						if(result.result == false){
+							if (!isID.test(mid)) {
+            					showErrorMsg(eMsg,"유효한 사업자 번호를 입력 해 주세요.");
+            					return false;
+       						 } else{
+							showSuccMsg(eMsg2,"사용할 수 있는 아이디(사업자번호)입니다.");
+							eMsg.hide();
+							submitId = true;
+							}
+						}
+					else{
+							showErrorMsg(eMsg,"사용할 수 없는 아이디(사업자번호)입니다.");
 							eMsg2.hide();
 					}
 					},

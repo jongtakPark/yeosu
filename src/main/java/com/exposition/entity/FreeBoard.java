@@ -12,7 +12,6 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.ColumnDefault;
 
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import lombok.Data;
 
 @Entity
@@ -37,5 +36,10 @@ public class FreeBoard extends BaseEntity{
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "member_id")
 	private Member member;
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "company_id")
+	private Company company;
+
 
 }

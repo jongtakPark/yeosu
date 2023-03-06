@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.exposition.dto.CompanyFormDto;
 import com.exposition.dto.MemberFormDto;
+import com.exposition.entity.Company;
 import com.exposition.entity.Member;
+import com.exposition.service.CompanyService;
 import com.exposition.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -27,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MemberController{
 	
+	private final CompanyService companyService;
 	private final MemberService memberService;
 	private final PasswordEncoder passwordEncoder;
 	
@@ -75,6 +78,24 @@ public class MemberController{
 		
 		return "redirect:/";
 	}
+	//기업회원가입
+	@PostMapping(value="/new1")
+	@Validated
+	public String newCompany(@Valid CompanyFormDto companyFormDto, BindingResult bindingResult, Model model) {
+		if(bindingResult.hasErrors()) {
+			return "member/companySignUp";
+		}
+		
+		try {
+			Company company = Company.createCompany(companyFormDto, passwordEncoder);
+			companyService.saveCompany(company);
+		} catch(IllegalStateException e) {
+			model.addAttribute("errorMessage", e.getMessage());
+			return "member/companySignUp";
+		}
+		
+		return "redirect:/";
+	}
 	//ajax를 이용한 아이디 중복검사
 	@GetMapping(value="/exists")
 	@ResponseBody
@@ -83,6 +104,15 @@ public class MemberController{
 		map.put("result", memberService.checkMidDuplicate(mid));
 		return map;
 	}
+	
+	//ajax를 이용한 사업자번호 중복검사
+		@GetMapping(value="/exists1")
+		@ResponseBody
+		public HashMap<String, Object> checkMidDuplicate1(String mid1){
+			HashMap<String, Object> map = new HashMap<>();
+			map.put("result", companyService.checkMidDuplicate(mid1));
+			return map;
+		}
 
 	// 아이디/비밀번호 찾기창으로 이동
 	@GetMapping(value="/findidpw")
