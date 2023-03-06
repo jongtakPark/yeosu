@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.exposition.dto.FreeBoardDto;
 import com.exposition.entity.FreeBoard;
 import com.exposition.repository.BoardRepository;
+import com.exposition.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,6 +18,17 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
 
 	private final BoardRepository boardRepository;
+	private final MemberRepository memberRepository;
+	
+	//게시판 글 작성
+	public FreeBoard saveBoard(FreeBoard freeBoard) {
+		return boardRepository.save(freeBoard);
+	}
+	
+	//게시판 리스트 출력
+	public List<FreeBoard> boardList(){
+		return boardRepository.findAll();
+	}
 	
 	public List<FreeBoard> findList() {
 		return boardRepository.findAll();

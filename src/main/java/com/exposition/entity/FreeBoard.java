@@ -1,5 +1,8 @@
 package com.exposition.entity;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,10 +20,12 @@ import com.exposition.dto.FreeBoardDto;
 
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
 @Table(name="freeBoard")
+@RequiredArgsConstructor
 public class FreeBoard extends BaseEntity{
 
 	// 글번호

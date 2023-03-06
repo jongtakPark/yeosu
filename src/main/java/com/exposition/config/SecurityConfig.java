@@ -23,7 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
-		http.formLogin().loginPage("/signup/login").defaultSuccessUrl("/")
+		http.
+		formLogin().loginPage("/signup/login").defaultSuccessUrl("/")
 		.usernameParameter("mid").passwordParameter("password").failureUrl("/signup/login/error")
 		.and()
 		.logout().logoutUrl("signup/logout").logoutRequestMatcher(new AntPathRequestMatcher("/signup/logout")).logoutSuccessUrl("/");

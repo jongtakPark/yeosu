@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .subMenu{
     margin-top: 10px;
     height: 50px;
@@ -109,3 +110,67 @@ tr td:last-child{
     background-color: #eee;
     border: 1px solid #535353;
 }
+=======
+@charset "UTF-8";
+    .subMenu{
+        margin-top: 10px;
+        height: 50px;
+        border-bottom: 1px solid grey;
+    }
+    .subMenu > ul {
+        margin-left: 13%;
+        line-height: 35px;
+    }
+    .subMenu > ul > li{
+        list-style: none;
+        float: left;
+        margin-left: 50px;
+    }
+    .subMenu > ul > li > a{
+        text-decoration: none;
+        color: black;
+    }
+    .subMenu > ul > li > a:hover{
+       color : red;
+    }
+   
+    
+/*    자유게시판*/
+    .freeboard{
+        width: 70%;
+        height: 900px;
+/*        border: 1px solid red;*/
+        margin: auto;
+    }
+    
+    .free_title{
+        position: relative;
+        border-bottom: 1px solid black;
+        height: 100px;
+    }
+    
+    .free_title > .title{
+        position: absolute;
+        margin-top: 30px;
+    }
+    
+    .free_title > .title > p{
+        font-size: 45px;
+    }
+    
+    .free_content{
+        background-color: #D8D8D8;
+        width: 95%;
+        height: 700px;
+        margin: auto;
+        margin-top: 10px;
+    }
+    
+    table{
+      width: 100%;
+    }
+    
+    td{
+        border-bottom: 1px solid black;
+    }
+>>>>>>> fb7be16ac0493007dd21f589f17c8193a30d04ed

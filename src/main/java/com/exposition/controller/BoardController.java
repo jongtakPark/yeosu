@@ -15,7 +15,6 @@ import com.exposition.service.BoardService;
 
 import lombok.RequiredArgsConstructor;
 
-
 @Controller
 @RequestMapping(value="/board")
 @RequiredArgsConstructor
