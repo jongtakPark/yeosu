@@ -35,15 +35,15 @@ layout:decorate="~{layouts/layout}">
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="list : ${list}">
-                        <td>
+                    <tr th:each="list : ${freeboard}">
+                     <td>
                       <span th:text="${list.id}"></span>
                     </td>
                     <td>
                        <span th:text="${list.title}"></span>
                     </td>
                     <td>
-                        <span th:text="${list.writer}"></span>
+                        <span th:text="${list.createdBy}"></span>
                     </td>
                     <td>
                        <span th:text="${#temporals.format(list.RegisterTime, 'yyyy-MM-dd HH:mm')}"></span>
@@ -53,7 +53,7 @@ layout:decorate="~{layouts/layout}">
             </table>   
         </div>
    </div>   
-   <a href="/board/write">글쓰기</a>
+   <a href="/board/boardwrite">글쓰기</a>
    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
  </div>
     

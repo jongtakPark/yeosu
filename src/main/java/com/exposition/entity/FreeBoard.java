@@ -52,12 +52,10 @@ public class FreeBoard extends BaseEntity{
 //	private Member member;
 
 	
-	public  static FreeBoard createfreeBoard(FreeBoardDto freeBoardDto) {
-			FreeBoard freeBoard = new FreeBoard();
-
-			freeBoard.setTitle(freeBoardDto.getTitle());
-			freeBoard.setContent(freeBoardDto.getContent());
-
-			return freeBoard;
+	public static FreeBoard createfreeBoard(FreeBoardDto freeBoardDto) {
+		FreeBoard freeBoard = new FreeBoard();
+		freeBoard.setTitle(freeBoardDto.getTitle());
+		freeBoard.setContent(freeBoardDto.getContent());
+		return freeBoard;
 	}
 }

@@ -27,6 +27,7 @@ import lombok.ToString;
 @Entity
 @Table(name="member")
 @Data
+@ToString
 public class Member {
 	
 	@Id
@@ -65,8 +66,8 @@ public class Member {
 		member.setName(memberFormDto.getName());
 		String password = passwordEncoder.encode(memberFormDto.getPassword());
 		member.setPasswoad(password);
-		String comfirmPw = passwordEncoder.encode(memberFormDto.getConfirmPassword());
-		member.setConfirmPassword(comfirmPw);
+//		String comfirmPw = passwordEncoder.encode(memberFormDto.getConfirmPassword());
+//		member.setConfirmPassword(comfirmPw);
 		member.setEmail(memberFormDto.getEmail());
 		member.setTel(memberFormDto.getTel());
 		member.setRole(Role.ADMIN);

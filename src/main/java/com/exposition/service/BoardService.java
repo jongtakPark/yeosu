@@ -30,12 +30,4 @@ public class BoardService {
 		return boardRepository.findAll();
 	}
 	
-	public List<FreeBoard> findList() {
-		return boardRepository.findAll();
-	}
-	
-	public FreeBoard saveBoard(FreeBoard freeBoard) {
-		return boardRepository.save(freeBoard);
-	}
-	
 }
