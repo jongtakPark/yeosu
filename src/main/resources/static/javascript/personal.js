@@ -244,9 +244,14 @@ $(".mid_ck").click(function(){
 				contentType: "application/json",
 					success: function(result){
 						if(result.result == false){
+							if (!isID.test(mid)) {
+            					showErrorMsg(eMsg,"5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.");
+            					return false;
+       						 } else{
 							showSuccMsg(eMsg2,"사용할 수 있는 아이디입니다.");
 							eMsg.hide();
-						submitId = true;
+							submitId = true;
+							}
 						}
 					else{
 							showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
