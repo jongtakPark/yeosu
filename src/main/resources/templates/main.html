@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/examples.css" />
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/mainMenu.css">
+	<link rel="stylesheet" href="/css/swiper.css">
 
 
 
@@ -46,8 +47,7 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('#fullpage').fullpage({
-				anchors: ['firstPage', 'secondPage', '3rdPage'],
-				sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+				anchors: ['firstPage', 'secondPage', 'thirdPage', 'footer'],
 				navigation: true,
 				navigationPosition: 'right',
 				// navigationTooltips: ['First page', 'Second page', 'Third and last page'],
@@ -205,27 +205,113 @@
 		</div>
 		<div class="section" id="section1">
 			<div class="intro">
-				<h1>Ideal for small screens</h1>
+				<div class="section1_inner">
+					<h2>대한민국 세계 섬 박람회</h2>
+					<h1>2026년 여수에서 개최합니다.</h1>
+				</div>
+				<div class="section1_content">
+					<img src="images/main4.jpg" alt="">
+					<div class="cont1">
+						<ul>
+							<li><span>기간</span> <strong>ㅣ</strong> 2026. 7. 17 &nbsp;~ &nbsp;2026. 8. 16</li>
+							<li><span>장소</span> <strong>ㅣ</strong> 여수시 돌산 진모지구 및 도서 일원</li>
+							<li><span>주제</span> <strong>ㅣ</strong> 섬, 바다와 미래를 잇다</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="section" id="section2">
 			<div class="intro">
-				<h1>Keep it simple!</h1>
-			</div>
-		</div>
-		<div class="section" id="section3">
-			<div class="intro">
-				<h1>Keep it simple!</h1>
+				<div class="section2_inner">
+				</div>
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="images/1.jpg" alt="">
+							<div class="t1"><p>2026여수세계섬박람회’
+								성공개최 기원기</p><a
+									href="https://www.yeosu.go.kr/www/govt/news/release/press?mode=view&idx=480797"
+									class="btn1">더보기</a></div>
+						</div>
+						<div class="swiper-slide"><img src="images/2.jpg" alt="">
+							<div class="t1"><p>여수시, 2026여수세계섬박람회 기본구상 발표</p><a
+									href="https://www.yeosu.go.kr/www/govt/news/hotnews?mode=view&idx=175280" class="btn1">더보기
+									</a></div>
+						</div>
+						<div class="swiper-slide"><img src="images/3.jpg" alt="">
+							<div class="t1"><p>‘2026여수세계섬박람회’ 국제행사 승인 기념 성공개최 결의대회 진행</p><a
+									href="https://www.yeosu.go.kr/www/govt/news/release/press?mode=view&idx=481303" class="btn2">더보기
+									</a></div>
+						</div>
+						<div class="swiper-slide"><img src="images/4.jpg" alt="">
+							<div class="t1"><p>세계섬박람회 본격준비...22일 용역 착수 시작</p><a
+									href="https://www.yeosu.go.kr/www/govt/news/release/press?mode=view&idx=173770" class="btn1">더보기</a></div>
+						</div>
+						<div class="swiper-slide"><img src="images/5.jpg" alt="">
+							<div class="t1"><p>‘국제 섬 포럼 여수’ 25일 개막…‘섬 박람회 기틀 마련’</p><a
+									href="https://www.yeosu.go.kr/www/govt/news/release/press?mode=view&idx=174170" class="btn1">더보기</a></div>
+						</div>
+						<div class="swiper-slide"><img src="images/6.jpg" alt="">
+							<div class="t1"><p>여수시, 2026여수세계섬박람회 범시민준비위원회 위원 모집 시작</p><a
+									href="https://www.yeosu.go.kr/www/govt/news/hotnews?mode=view&idx=485741" class="btn2">더보기</a></div>
+						</div>
+					</div>
+
+				</div>
+				<div class="swiper_btn">
+					<h2>박람회 소식</h2>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
 			</div>
 		</div>
 		<div class="section footer-wrap fp-auto-height">
 			<div class="footer">
-				<p>Footer</p>
+				<div class="footer_inner">
+					<div class="footer_left">
+						<img src="images/footer.png" alt="">
+					</div>
+					<div class="footer_middle">
+						<div class="footer_middle_content">
+							<p>주소 59723 전라남도 여수시 박람회길 1 (덕충동) 사업자번호 417-82-08394<br>
+								TEL 1577-2012 FAX 061-659-2029
+							</p>
+							<p>
+								Copyright © EXPO 2026 YEOSU KOREA FOUNDATION All rights reserved.
+							</p>
+						</div>
+					</div>
+					<div class="footer_right">
+						<select name="familysite" id="familysite">
+							<option value="">
+								여수세계섬박람회
+							</option>
+							<option value="">
+								site2
+							</option>
+							<option value="">
+								site3
+							</option>
+						</select>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
+	<script>
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: 3,
+			spaceBetween: 30,
+			loop: true,
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
 
+		});
+	</script>
 </body>
 
 </html>
