@@ -54,7 +54,7 @@ layout:decorate="~{layouts/layout}">
              <div class="com_e">
                  <div class="com_mail"><span>이메일</span></div>
                  <div><input class="com_tex" type="email"  name="email" id="email" th:field="*{email}" placeholder="  이메일을 입력해주세요"></div>
-                 <div class="com_mail_send"><span><a href="#">인증번호 발송</a></span></div>
+                 <div class="com_mail_send"><span><a href="#" id="emailsend">인증번호 발송</a></span></div>
              </div>
              <p th:if="${#fields.hasErrors('email')}"  th:errors="*{email}" class="fieldError" id="fieldErrorEmail">Incorrect data</p>  
              <div class="error_div"><span class="error" id="emailMsg" ></span></div>
@@ -63,7 +63,7 @@ layout:decorate="~{layouts/layout}">
              <div class="com_f">
                 <div class="com_mail_a"><span></span></div>
                  <div><input class="com_tex" type="email"  th:field="*{confirmEmail}" placeholder="  인증번호를 입력해주세요" id="emailcode"></div>
-                 <div class="com_mail_ck"><span><a href="#">인증확인</a></span></div>
+                 <div class="com_mail_ck"><span><a href="#" id="emailcheck">인증확인</a></span></div>
              </div>
              <div class="error_div"><span class="error" id="emailCheckMsg" ></span></div>
              <div class="succ_div"><span class="succ" id="emailCheckMsg2" ></span></div>
