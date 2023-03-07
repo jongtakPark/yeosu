@@ -55,6 +55,7 @@ public class FreeBoard extends BaseEntity{
 		FreeBoard freeBoard = new FreeBoard();
 		freeBoard.setTitle(freeBoardDto.getTitle());
 		freeBoard.setContent(freeBoardDto.getContent());
+		freeBoard.setId(freeBoardDto.getId());
 		return freeBoard;
 	}
 }

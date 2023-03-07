@@ -34,4 +34,8 @@ public class BoardService {
 		return boardRepository.findById(id);
 	}
 	
+	public FreeBoard updateBoard(Long id) {
+		return boardRepository.findById(id).get();
+	}
+	
 }

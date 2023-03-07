@@ -267,7 +267,6 @@ $(".mid_ck").click(function(){
 				});
         }
         return true;
-
 });
 
 	

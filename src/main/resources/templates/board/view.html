@@ -31,7 +31,7 @@ layout:decorate="~{layouts/layout}">
                     <label for="" >
                         제목
                     </label>
-                    <input type="text"  th:value="${freeboard.title}" readOnly>
+                    <input type="text" th:value="${title}" readOnly>
                 </div>
             </div>
             <div class="info_cont">
@@ -39,7 +39,7 @@ layout:decorate="~{layouts/layout}">
                     <label for="" >
                         내용
                     </label>
-                    <textarea name="" id="test" cols="83" rows="10"  th:text="${freeboard.content}" readOnly></textarea>
+                    <textarea name="" id="test" cols="83" rows="10"  th:text="${content}" readOnly></textarea>
                 </div>
             </div>
             <div class="info_create">
@@ -47,7 +47,7 @@ layout:decorate="~{layouts/layout}">
                     <label for="">
                         작성자
                     </label>
-                    <input type="text"   th:value="${freeboard.createdBy}" readOnly >
+                    <input type="text" th:value="${created}" readOnly >
                 </div>
             </div>
             <div class="info_submit">

@@ -40,13 +40,14 @@ layout:decorate="~{layouts/layout}">
                       <span th:text="${list.id}"></span>
                     </td>
                     <td>
-                       <a href="/board/view"><input type="hidden" th:name="id" th:value="${list.id}"><span th:text="${list.title}"></span></a>
+                       <a th:href="@{/board/view/{id}(id=${list.id})}"><span th:text="${list.title}"></span></a>
                     </td>
                     <td>
                         <span th:text="${list.createdBy}"></span>
                     </td>
                     <td>
-                       <span th:text="${#temporals.format(list.RegisterTime, 'yyyy-MM-dd HH:mm')}"></span>
+                       <span th:if="${list.registerTime == list.updateTime}" th:text="${#temporals.format(list.RegisterTime, 'yyyy-MM-dd HH:mm')}"></span>
+                       <span th:if="${list.registerTime != list.updateTime}" th:text="${#temporals.format(list.updateTime, 'yyyy-MM-dd HH:mm')}"></span>
                     </td>
                     </tr>
                 </tbody>
