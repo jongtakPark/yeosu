@@ -36,17 +36,18 @@ layout:decorate="~{layouts/layout}">
                 </thead>
                 <tbody>
                     <tr th:each="list : ${freeboard}">
-                     <td>
+                        <td>
                       <span th:text="${list.id}"></span>
                     </td>
                     <td>
-                       <span th:text="${list.title}"></span>
+                       <a th:href="@{/board/view/{id}(id=${list.id})}"><span th:text="${list.title}"></span></a>
                     </td>
                     <td>
                         <span th:text="${list.createdBy}"></span>
                     </td>
                     <td>
-                       <span th:text="${#temporals.format(list.RegisterTime, 'yyyy-MM-dd HH:mm')}"></span>
+                       <span th:if="${list.registerTime == list.updateTime}" th:text="${#temporals.format(list.RegisterTime, 'yyyy-MM-dd HH:mm')}"></span>
+                       <span th:if="${list.registerTime != list.updateTime}" th:text="${#temporals.format(list.updateTime, 'yyyy-MM-dd HH:mm')}"></span>
                     </td>
                     </tr>
                 </tbody>
