@@ -6,8 +6,8 @@ import com.exposition.entity.Company;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
 	
-	Company findByMid(String mid);
-	boolean existsByMid(String mid);
+	Company findByCom(String com);
+	boolean existsByCom(String com);
 	Company save(Company company);
 	
 

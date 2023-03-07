@@ -35,7 +35,7 @@ public class Company {
 	
 	@Column(unique = true)
 	@NotNull
-	private String mid;
+	private String com;
 	
 	@NotNull
 	private String passwoad;
@@ -60,7 +60,7 @@ public class Company {
 	//스프링시큐리티 설정 클래스에(SecurityConfig.java) 등록한 BCryptPasswordEncoder Bean으로 파라미터로 넘겨서 비밀번호를 암호화
 	public static Company createCompany(CompanyFormDto companyFormDto, PasswordEncoder passwordEncoder) {
 		Company company = new Company();
-		company.setMid(companyFormDto.getMid());
+		company.setCom(companyFormDto.getCom());
 		company.setName(companyFormDto.getName());
 		String password = passwordEncoder.encode(companyFormDto.getPassword());
 		company.setPasswoad(password);

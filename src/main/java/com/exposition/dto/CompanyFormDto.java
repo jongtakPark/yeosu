@@ -14,7 +14,7 @@ public class CompanyFormDto {
 	
 	@NotBlank(message = "사업자번호(아이디)는 필수 입력값입니다.")
 	@Length(min=10 ,max=10, message="사업자번호(아이디)는 10자리 숫자 입니다.")
-    private String mid;
+    private String com;
 	
 	@NotBlank(message = "기업명은 필수 입력 값입니다.")
 	private String name;

@@ -1,8 +1,5 @@
 package com.exposition.entity;
 
-import java.time.LocalDateTime;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,15 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-import org.hibernate.annotations.ColumnDefault;
-
-<<<<<<< HEAD
-=======
-import com.exposition.dto.MemberFormDto;
 import com.exposition.dto.FreeBoardDto;
 
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
->>>>>>> main
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -49,7 +39,7 @@ public class FreeBoard extends BaseEntity{
 //	@ColumnDefault("0")
 //	private int viewCnt;
 	
-<<<<<<< HEAD
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "member_id")
 	private Member member;
@@ -58,12 +48,7 @@ public class FreeBoard extends BaseEntity{
 	@JoinColumn(name = "company_id")
 	private Company company;
 
-=======
-	// 
-//	@ManyToOne(optional = false)
-//	@JoinColumn(name = "member_id")
-//	private Member member;
->>>>>>> main
+
 
 	
 	public static FreeBoard createfreeBoard(FreeBoardDto freeBoardDto) {

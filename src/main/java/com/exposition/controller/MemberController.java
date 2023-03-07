@@ -16,11 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-<<<<<<< HEAD
-import com.exposition.dto.CompanyFormDto;
-=======
 import com.exposition.constant.Role;
->>>>>>> main
+import com.exposition.dto.CompanyFormDto;
 import com.exposition.dto.MemberFormDto;
 import com.exposition.entity.Company;
 import com.exposition.entity.Member;
@@ -132,9 +129,9 @@ public class MemberController{
 	//ajax를 이용한 사업자번호 중복검사
 		@GetMapping(value="/exists1")
 		@ResponseBody
-		public HashMap<String, Object> checkMidDuplicate1(String mid1){
+		public HashMap<String, Object> checkMidDuplicate1(String com){
 			HashMap<String, Object> map = new HashMap<>();
-			map.put("result", companyService.checkMidDuplicate(mid1));
+			map.put("result", companyService.checkMidDuplicate(com));
 			return map;
 		}
 
