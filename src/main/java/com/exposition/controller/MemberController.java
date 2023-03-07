@@ -2,6 +2,7 @@ package com.exposition.controller;
 
 import java.util.HashMap;
 
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,7 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< HEAD
 import com.exposition.dto.CompanyFormDto;
+=======
+import com.exposition.constant.Role;
+>>>>>>> main
 import com.exposition.dto.MemberFormDto;
 import com.exposition.entity.Company;
 import com.exposition.entity.Member;
@@ -32,6 +37,25 @@ public class MemberController{
 	private final CompanyService companyService;
 	private final MemberService memberService;
 	private final PasswordEncoder passwordEncoder;
+	
+	@PostConstruct
+	//관리자 계정 생성
+	private void createAdmin() {
+		
+		boolean check = memberService.checkMidDuplicate("admin");
+		if (check)
+			return;
+		MemberFormDto memberFormDto = new MemberFormDto();
+		memberFormDto.setMid("admin");
+		memberFormDto.setPassword("admin123");
+		memberFormDto.setName("관리자");
+		memberFormDto.setEmail("admin@adminEmail.com");
+		Member member = Member.createMember(memberFormDto , passwordEncoder);
+		String password = passwordEncoder.encode(memberFormDto.getPassword());
+		member.setPasswoad(password);
+		member.setRole(Role.ADMIN);
+		memberService.saveMember(member);
+	}
 	
 	//로그인창으로 이동
 	@RequestMapping(value="/login", method= {RequestMethod.POST, RequestMethod.GET})

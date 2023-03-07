@@ -9,10 +9,12 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @EntityListeners(value = { AuditingEntityListener.class })
 @MappedSuperclass
 @Getter
+@Setter
 public abstract class BaseEntity extends BaseTimeEntity {
 	@CreatedBy
 	@Column(updatable = false)
