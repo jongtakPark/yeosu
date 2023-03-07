@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import com.exposition.service.CompanyService;
 import com.exposition.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	private final MemberService memberService;
+	private final CompanyService companyservice;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{

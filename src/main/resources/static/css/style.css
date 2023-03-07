@@ -1,8 +1,16 @@
 /* Style for our header texts
 	* --------------------------------------- */
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+*{
+    font-family: 'Pretendard-Regular';
+}
 h1 {
     font-size: 5em;
-    font-family: arial, helvetica;
     color: #fff;
     margin: 0;
 }
@@ -95,8 +103,54 @@ h1 {
 
 .footer-wrap .footer {
     height: 300px;
+    background-color: #333;
+    color: #fff;
 }
 
+.footer_inner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.footer_left{
+    flex: 20%;
+    position: relative;
+    height: 300px;
+}
+
+.footer_left img{
+    width: 200px;
+    height: 121px;
+    position: absolute;
+    left: 25%;
+    top: 27%;
+}
+.footer_middle{
+    flex: 60%;
+    position: relative;
+    height: 300px;
+}
+.footer_middle_content{
+    position: absolute;
+    top: 35%;
+    left: 15%;
+    text-align: left;
+    font-size: 10px;
+}
+.footer_middle_content p:nth-child(2){
+    margin-top: 20px;
+}
+.footer_right{
+    flex: 20%;
+    position: relative;
+}
+#familysite{
+    position: absolute;
+    top: 45%;
+    left: -10%;
+    height: 25px;
+}
 .header {
     width: 100%;
     height: 30%;
@@ -133,11 +187,15 @@ h1 {
 #section1 {
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     background-image: url(/images/section01_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+=======
+    background-color: rgb(219,219,219);
+>>>>>>> origin/main
 }
 
 #section1>.intro {
@@ -152,34 +210,89 @@ h1 {
 }
 
 .section1_inner h2 {
+<<<<<<< HEAD
     font-size: 40px;
+=======
+    font-size: 35px;
+>>>>>>> origin/main
     color: #333;
 }
 
 .section1_inner h1 {
+<<<<<<< HEAD
     font-size: 60px;
+=======
+    font-size: 50px;
+>>>>>>> origin/main
     color: black;
     font-weight: bold;
 }
 
 .section1_content {
     width: 1280px;
+<<<<<<< HEAD
     height: 706px;
+=======
+    height: 530px;
+>>>>>>> origin/main
     background-color: #fff;
     /* position: absolute;
     left: 10%;
     top: 30%; */
     margin: 0 auto;
+<<<<<<< HEAD
     margin-top: 10px;
 }
 .section1_content img{
     width: 100%;
     height: 100%;
 }
+=======
+    margin-top: 40px;
+}
+
+.section1_content img {
+    width: 1280px;
+    height: 400px;
+}
+strong{
+    font-weight: normal;
+    color: darkgray;
+    /* line-height: 130px; */
+    margin-left: 35px;
+}
+
+.cont1 ul{
+    display: flex;
+    justify-content: space-around;
+    line-height: 130px;
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+}
+.cont1 ul li{
+    position: relative;
+}
+
+.cont1 ul li span{
+    color: rgb(187, 187, 187);
+    font-size: 15px;    
+    /* line-height: 10px; */
+    position: absolute;
+    /* top: -1px; */
+}
+/* .cont1 ul li:nth-child(2) span{
+    top: -1px;
+}
+.cont1 ul li:last-child span{
+    top: -1px;
+} */
+>>>>>>> origin/main
 
 #section2 {
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     background-image: url(/images/section01_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -190,6 +303,21 @@ h1 {
     margin: 0 auto;
     position: relative;
 }
+=======
+    /* background-image: url(images/section01_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+    background-color: rgb(219, 219, 219);
+}
+
+#section2>.intro {
+    margin: 0 auto;
+    position: relative;
+}
+
+>>>>>>> origin/main
 .section2_inner {
     /* position: absolute;
     top: 16%;
@@ -211,17 +339,27 @@ h1 {
 
 .swiper-slide {
     text-align: center;
+<<<<<<< HEAD
       font-size: 18px;
       background: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
+=======
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+>>>>>>> origin/main
 }
 
 
 .swiper-slide img {
     display: block;
     width: 100%;
+<<<<<<< HEAD
     height: 100%;
     object-fit: cover;
 }
@@ -236,6 +374,98 @@ h1 {
 .swiper_btn>h2{
     font-size: 40px;
     color: #fff;
+=======
+    height: 80%;
+    object-fit: cover;
+}
+
+.t1 {
+    margin-top: 30px;
+    float: left;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.t1 p {
+    display: block;
+    position: absolute;
+    top: 460px;
+    font-size: 18px;
+    color: #666;
+    font-weight: bold;
+    width: 90%;
+}
+
+.t1 .btn1 {
+    margin-top: 25px;
+    color: #666;
+    display: block;
+    position: relative;
+    line-height: 10px;
+}
+
+.t1 .btn2{
+    margin-top: 50px;
+    color: #666;
+    display: block;
+    position: relative;
+    line-height: 10px;
+}
+
+.btn1::before {
+    content: '';
+    width: 0px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: darkgray;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.btn1:hover::before {
+    width: 47px;
+}
+
+.btn2::before {
+    content: '';
+    width: 0px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: darkgray;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.btn2:hover::before {
+    width: 47px;
+}
+
+
+.swiper-slide>a {
+    color: #000;
+    border: 1px solid red;
+    /* display: block; */
+    text-align: left;
+}
+
+.swiper_btn {
+    width: 200px;
+    height: 550px;
+    background-color: transparent;
+    margin-left: 1420px;
+    margin-top: 50px;
+    position: relative;
+    border-top: 3px solid black;
+}
+
+.swiper_btn>h2 {
+    font-size: 35px;
+    color: black;
+>>>>>>> origin/main
     font-weight: bold;
     padding-top: 130px;
 }

@@ -200,3 +200,14 @@
         border-radius: 5px;
         font-weight: bold;
     }
+    .error{
+    	margin-left: 38.5%;
+    	display: block;
+    	color: red;
+    }
+    .succ{
+    	margin-left: 38.5%;
+    	display: block;
+    	color: green;
+    }
+    
