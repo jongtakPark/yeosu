@@ -40,13 +40,13 @@ public class FreeBoard extends BaseEntity{
 //	private int viewCnt;
 	
 
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "member_id")
-	private Member member;
-	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "company_id")
-	private Company company;
+//	@ManyToOne(optional = false)
+//	@JoinColumn(name = "member_id")
+//	private Member member;
+//	
+//	@ManyToOne(optional = false)
+//	@JoinColumn(name = "company_id")
+//	private Company company;
 
 
 

@@ -26,7 +26,7 @@ public class MailController {
 	    String authKey = mailService.sendAuthMail(email); 
 	    return authKey;
 	}
-	
+	//이메일 인증확인
 	@GetMapping(value="/checkcode")
 	@ResponseBody
 	public HashMap<String, Object> codeCheck(@RequestParam("emailcode") String emailcode) {

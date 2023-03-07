@@ -1,11 +1,13 @@
 package com.exposition.controller;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.exposition.dto.FreeBoardDto;
 import com.exposition.entity.FreeBoard;
@@ -46,5 +48,13 @@ public class BoardController {
 		boardService.saveBoard(freeBoard);
 		return "redirect:/board/freeboard";
 		}	
-			
+	
+	// 게시글 상세보기
+	@GetMapping(value="/view")
+	public String boardView(@RequestParam("list.id") Long id, Model model) {
+		Optional<FreeBoard> view = boardService.findBoard(id);
+		System.out.println(view);
+		model.addAttribute("view", view);
+		return "board/view";
+	}
 }
