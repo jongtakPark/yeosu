@@ -14,7 +14,7 @@ layout:decorate="~{layouts/layout}">
                <span>로그인</span>
            </div><br>
            <form method="post" action="/signup/login">
-            <input type="text" placeholder="아이디" class="login_id" name="mid" ><br>
+            <input type="text" placeholder="아이디" class="login_id" name="com" ><br>
                 <input type="password" placeholder="비밀번호" class="login_pw" name="password"><br>
                 <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
                 <div class="login">
