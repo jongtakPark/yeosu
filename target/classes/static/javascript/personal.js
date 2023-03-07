@@ -3,7 +3,7 @@ var submitId = false;
 var submitPw = false;
 var submitEmail = false;
 
-
+//일반회원 아이디
 $("#mid").blur(function(){
 		checkId();	
 	});
@@ -27,6 +27,9 @@ $("#mid").blur(function(){
         }
         return true;
     }
+    
+
+
    
 $("#name").blur(function(){
 		checkName();	
@@ -264,8 +267,8 @@ $(".mid_ck").click(function(){
 				});
         }
         return true;
-
 });
+
 	
 $("#regist").click(function submitCheck(){
 	var eMsg = $("#midMsg");

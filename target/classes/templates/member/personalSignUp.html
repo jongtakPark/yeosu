@@ -34,7 +34,7 @@ layout:decorate="~{layouts/layout}">
              <div class="error_div"><span class="error" id="nameMsg" ></span></div>
             <div class="per_c">
                  <div class="per_pw"><span>비밀번호</span></div>
-                 <div><input class="per_tex" type="password" name="password" id="password" th:field="*{password}" placeholder="  비밀번호을 입력해주세요"></div>
+                 <div><input class="per_tex" type="password" name="password" id="password" th:field="*{password}" placeholder="  비밀번호를 입력해주세요"></div>
              </div>
          <p th:if="${#fields.hasErrors('password')}"  th:errors="*{password}" class="fieldError" id="fieldErrorPw">Incorrect data</p> 
              <div class="error_div"><span class="error" id="passwordMsg" ></span></div>
@@ -52,6 +52,7 @@ layout:decorate="~{layouts/layout}">
        <p th:if="${#fields.hasErrors('email')}"  th:errors="*{email}" class="fieldError" id="fieldErrorEmail">Incorrect data</p>  
              <div class="error_div"><span class="error" id="emailMsg" ></span></div>
              <div class="succ_div"><span class="succ" id="emailMsg2" ></span></div>
+            
              <div class="per_f">
                 <div class="per_mail_a"><span></span></div>
                  <div><input class="per_tex" type="text"  th:field="*{confirmEmail}" placeholder="인증번호를 입력해주세요" id="emailcode"></div>
@@ -59,6 +60,7 @@ layout:decorate="~{layouts/layout}">
              </div>
              <div class="error_div"><span class="error" id="emailCheckMsg" ></span></div>
              <div class="succ_div"><span class="succ" id="emailCheckMsg2" ></span></div>
+             
              <div class="per_g">
                  <div class="per_tel"><span>전화번호(선택)</span></div>
                  <div><input class="per_tex" type="tel" th:field="*{tel}" name="tel" id="tel" oninput="autoHyphen(this)" maxlength="13" placeholder="  전화번호를 입력해주세요"></div>
@@ -73,4 +75,4 @@ layout:decorate="~{layouts/layout}">
         </div>
       
 </body>
-</html>      
+</html> 
