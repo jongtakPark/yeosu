@@ -10,6 +10,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @Transactional
 @RequiredArgsConstructor
+@EnableAsync
 public class MailService {
 
 	//String에서 제공하는 MailSender
@@ -47,6 +50,7 @@ public class MailService {
 		}
 	
 	//이메일 발송
+	@Async
 	public String sendAuthMail(String email) throws MessagingException{
 	   String authKey = createKey();
 	    checkCode.put("code", authKey);
