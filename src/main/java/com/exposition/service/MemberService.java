@@ -30,7 +30,8 @@ public class MemberService implements UserDetailsService {
 			throw new IllegalStateException("이미 가입된 회원입니다");
 		}	
 	}
-	//중복검사
+	
+	//ajax를 이용한 중복검사
 	public boolean checkMidDuplicate(String mid) {
 		return memberRepository.existsByMid(mid);
 	}
@@ -44,5 +45,6 @@ public class MemberService implements UserDetailsService {
 		}
 		
 		return User.builder().username(member.getMid()).password(member.getPasswoad()).roles(member.getRole().toString()).build();
+		
 	}
 }

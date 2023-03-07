@@ -2,8 +2,7 @@ package com.exposition.controller;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,7 +16,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.exposition.constant.Role;
 import com.exposition.dto.MemberFormDto;
 import com.exposition.entity.Member;
 import com.exposition.service.MemberService;
@@ -32,9 +33,28 @@ public class MemberController{
 	private final MemberService memberService;
 	private final PasswordEncoder passwordEncoder;
 	
+	@PostConstruct
+	//관리자 계정 생성
+	private void createAdmin() {
+		
+		boolean check = memberService.checkMidDuplicate("admin");
+		if (check)
+			return;
+		MemberFormDto memberFormDto = new MemberFormDto();
+		memberFormDto.setMid("admin");
+		memberFormDto.setPassword("admin123");
+		memberFormDto.setName("관리자");
+		memberFormDto.setEmail("admin@adminEmail.com");
+		Member member = Member.createMember(memberFormDto , passwordEncoder);
+		String password = passwordEncoder.encode(memberFormDto.getPassword());
+		member.setPasswoad(password);
+		member.setRole(Role.ADMIN);
+		memberService.saveMember(member);
+	}
+	
 	//로그인창으로 이동
 	@RequestMapping(value="/login", method= {RequestMethod.POST, RequestMethod.GET})
-	public String login() {
+	public String login(Model model) {
 		return "member/loginForm";
 	}
 	//로그인 오류시
@@ -77,8 +97,9 @@ public class MemberController{
 		
 		return "redirect:/";
 	}
-	//아이디 중복검사
+	//ajax를 이용한 아이디 중복검사
 	@GetMapping(value="/exists")
+	@ResponseBody
 	public HashMap<String, Object> checkMidDuplicate(String mid){
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("result", memberService.checkMidDuplicate(mid));
@@ -88,4 +109,10 @@ public class MemberController{
 	
 
 
+	// 아이디/비밀번호 찾기창으로 이동
+	@GetMapping(value="/findidpw")
+	public String findIdPw() {
+		return "member/findIdPw";
+	}
+	
 }

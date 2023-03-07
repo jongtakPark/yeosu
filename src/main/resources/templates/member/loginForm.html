@@ -14,15 +14,16 @@ layout:decorate="~{layouts/layout}">
                <span>로그인</span>
            </div><br>
            <form method="post" action="/signup/login">
-           
-            <input type="text" placeholder="아이디" class="login_id" name="mid"><br>
+
+            <input type="text" placeholder="아이디" class="login_id" name="mid" ><br>
+
                 <input type="password" placeholder="비밀번호" class="login_pw" name="password"><br>
                 <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
                 <div class="login">
                     <button>로그인</button>
                 </div>
                 <div class="findlogin">
-                    <span class="find_idpw"><a href="#">아이디/비밀번호 찾기</a></span>
+                    <span class="find_idpw"><a href="/signup/findidpw">아이디/비밀번호 찾기</a></span>
                     <span class="membership"><a href="/signup/agreement">회원가입</a></span>
                 </div>
                 

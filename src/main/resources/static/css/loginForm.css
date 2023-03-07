@@ -48,3 +48,10 @@
         text-decoration: none;
         color: black;
     }
+    
+    .error {
+     	margin-left: 29%;
+     	margin-top: 10px;
+    	font-size: 20px;
+    	color: red;
+    }
