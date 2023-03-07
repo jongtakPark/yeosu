@@ -75,7 +75,7 @@ public class MemberController{
 	//기업 회원가입창으로 이동
 	@GetMapping(value="/company")
 	public String companySignUp(Model model) {
-		model.addAttribute("CompanyFormDto", new CompanyFormDto());
+		model.addAttribute("companyFormDto", new CompanyFormDto());
 		return "member/companySignUp";
 	}
 	//일반 회원가입창으로 이동
@@ -103,7 +103,7 @@ public class MemberController{
 		return "redirect:/";
 	}
 	//기업회원가입
-	@PostMapping(value="/new1")
+	@PostMapping(value="/comnew")
 	@Validated
 	public String newCompany(@Valid CompanyFormDto companyFormDto, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
@@ -130,11 +130,11 @@ public class MemberController{
 	}
 	
 	//ajax를 이용한 사업자번호 중복검사
-		@GetMapping(value="/exists1")
+		@GetMapping(value="/existscom")
 		@ResponseBody
-		public HashMap<String, Object> checkMidDuplicate1(String com){
+		public HashMap<String, Object> checkComDuplicate(String com){
 			HashMap<String, Object> map = new HashMap<>();
-			map.put("result", companyService.checkMidDuplicate(com));
+			map.put("result", companyService.checkComDuplicate(com));
 			return map;
 		}
 

@@ -17,7 +17,7 @@ layout:decorate="~{layouts/layout}">
             <div class="title_ent">
                 <span>기업회원</span>
             </div>
-             <form action="/signup/new1" method="post" th:object="${CompanyFormDto}" onsubmit="return submitCheck();">           
+             <form action="/signup/comnew" method="post" th:object="${companyFormDto}" onsubmit="return submitCheck();">           
             
              <div class="com_a">
                  <div class="com_id"><span>아이디(사업자번호)</span></div>
@@ -53,7 +53,7 @@ layout:decorate="~{layouts/layout}">
              
              <div class="com_e">
                  <div class="com_mail"><span>이메일</span></div>
-                 <div><input class="com_tex" type="email"  name="email" id="email" th:field="*{email}" placeholder="  이메일을 입력해주세요"></div>
+                 <div><input class="com_tex" name="email" id="email" th:field="*{email}" placeholder="  이메일을 입력해주세요"></div>
                  <div class="com_mail_send"><span><a href="#" id="emailsend">인증번호 발송</a></span></div>
              </div>
          <p th:if="${#fields.hasErrors('email')}"  th:errors="*{email}" class="fieldError" id="fieldErrorEmail">Incorrect data</p>

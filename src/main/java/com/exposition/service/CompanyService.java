@@ -32,7 +32,7 @@ public class CompanyService implements UserDetailsService {
 		}	
 	}
 	//ajax를 이용한 중복검사
-	public boolean checkMidDuplicate(String com) {
+	public boolean checkComDuplicate(String com) {
 		return companyRepository.existsByCom(com);
 	}
 	//로그인

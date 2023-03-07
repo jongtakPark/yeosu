@@ -218,7 +218,7 @@ const autoHyphen = (target) => {
     }
 
 //유효성 검사 이후 나온 error 메시지 감추기
-$("#mid").focus(function(){
+$("#com").focus(function(){
 	$("#fieldErrorMid").hide()
 });
 $("#password").focus(function(){
@@ -248,7 +248,7 @@ $(".com_ck").click(function(){
             cMsg.hide();
             $.ajax({
 				type: "get",
-				url: "/signup/exists1",
+				url: "/signup/existscom",
 				data : { "com" : com },
 				contentType: "application/json",
 					success: function(result){
