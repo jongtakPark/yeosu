@@ -49,10 +49,10 @@ public class FreeBoard extends BaseEntity{
 	
 	public  static FreeBoard createfreeBoard(FreeBoardDto freeBoardDto) {
 			FreeBoard freeBoard = new FreeBoard();
-
 			freeBoard.setTitle(freeBoardDto.getTitle());
 			freeBoard.setContent(freeBoardDto.getContent());
-
+			freeBoard.setId(freeBoardDto.getId());
 			return freeBoard;
 	}
+	
 }

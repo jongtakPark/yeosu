@@ -40,6 +40,7 @@ public class MemberService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String mid) throws UsernameNotFoundException{
 		
 		Member member = memberRepository.findByMid(mid);
+		
 		if(member==null) {
 			throw new UsernameNotFoundException(mid);
 		}

@@ -4,8 +4,8 @@ xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
 layout:decorate="~{layouts/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>boardwrite</title>
-<link rel="stylesheet" th:href="@{/css/boardwrite.css}">
+    <title>boardmodify</title>
+<link rel="stylesheet" th:href="@{/css/boardmodify.css}">
 </head>
 
 <body>
@@ -21,25 +21,25 @@ layout:decorate="~{layouts/layout}">
    <div class="freeboard">
        <div class="free_title">
           <div class="title">
-               <span>자유게시판</span>
+               <span>자유게시판 수정</span>
            </div>
        </div>
-       <form action="/board/write" method="post"  th:object="${freeBoardDto}">
+       <form th:action="@{'/board/modify/action/' + ${freeboard.id}}"  th:method="PUT"     th:object="${freeBoardDto}" >
        <div class="info_content">
             <div class="info_title">
                 <div class="info_title_inner">
-                    <label for="">
+                    <label for="" >
                         제목
                     </label>
-                    <input type="text"  th:field="*{title}">
+                    <input type="text"  th:value="${freeboard.title}"  name="title">
                 </div>
             </div>
             <div class="info_cont">
                 <div class="info_cont_inner">
-                    <label for="">
+                    <label for="" >
                         내용
                     </label>
-                    <textarea name="" id="test" cols="83" rows="10" th:field="*{content}"></textarea>
+                    <textarea name="content"  id="test" cols="83" rows="10"  th:text="${freeboard.content}" ></textarea>
                 </div>
             </div>
             <div class="info_create">
@@ -47,16 +47,19 @@ layout:decorate="~{layouts/layout}">
                     <label for="">
                         작성자
                     </label>
-                    <input type="text" value="1" readOnly >
+                    <input type="text"   th:value="${freeboard.createdBy}" readOnly >
                 </div>
             </div>
             <div class="info_submit">
-               <button type="submit">등록</button>
+               <button type="submit">수정완료</button>
             </div>
        </div>
        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     </form>
    </div>
+     
+   
+  
  </div>
     
 </body>

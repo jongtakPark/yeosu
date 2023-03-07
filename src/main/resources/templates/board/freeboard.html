@@ -40,13 +40,14 @@ layout:decorate="~{layouts/layout}">
  							<span th:text="${board.id}"></span>
   						</td>
   						<td>
-  							<a  href="#" th:text="${board.title}"></a>
+  							<a th:href="@{/board/detail/{id}(id=${board.id})}"  th:text="${board.title}"></a>
   						</td>
   						  <td>
   							 <span th:text="${board.createdBy}"></span>
   						</td>
   						<td>
-  							 <span th:text="${#temporals.format(board.registerTime, 'yyyy-MM-dd HH:mm')}"></span>
+  							 <span th:if="${board.registerTime == board.updateTime}" th:text="${#temporals.format(board.registerTime, 'yyyy-MM-dd HH:mm')}"></span>
+  							 <span th:if="${board.registerTime != board.updateTime}" th:text="${#temporals.format(board.updateTime, 'yyyy-MM-dd HH:mm')}"></span>
   						</td>
                     </tr>
                 </tbody>
