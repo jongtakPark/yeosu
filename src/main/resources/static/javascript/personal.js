@@ -28,6 +28,32 @@ $("#mid").blur(function(){
         return true;
     }
     
+    //기업회원 아이디(사업자번호)
+$("#mid1").blur(function(){
+		checkId();	
+	});
+	
+    function checkId(){
+		
+		var mid = $("#mid").val();
+		var eMsg = $("#midMsg");
+		
+		if(mid==""){
+			showErrorMsg(eMsg1,"필수 정보입니다.");
+			return false;
+		}
+		
+		var isID = /^[0-9]{3}-[0-9]{2}-[0-9]{5}$/;
+        if (!isID.test(mid)) {
+            showErrorMsg(eMsg,"유효한 사업자 번호를 입력 해 주세요.");
+            return false;
+        } else {
+            eMsg.hide();
+        }
+        return true;
+    }
+    
+    
 
    
 $("#name").blur(function(){
