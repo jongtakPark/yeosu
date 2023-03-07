@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	private final MemberService memberService;
-	private final CompanyService companyservice;
+	private final CompanyService companyService;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		formLogin().loginPage("/signup/login").defaultSuccessUrl("/")
 		.usernameParameter("mid").passwordParameter("password").failureUrl("/signup/login/error")
 		.and()
-		.logout().logoutUrl("signup/logout").logoutRequestMatcher(new AntPathRequestMatcher("/signup/logout")).logoutSuccessUrl("/");
+		.logout().logoutUrl("signup/logout").logoutRequestMatcher(new AntPathRequestMatcher("/signup/logout")).logoutSuccessUrl("/");		
 //		.and()
 //		.authorizeRequests()
 //		.mvcMatchers("/").permitAll() // 모든 사용자 인증없이 해당경로에 접근하도록 설정
