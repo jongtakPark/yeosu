@@ -13,7 +13,6 @@ import lombok.Data;
 public class CompanyFormDto {
 	
 	@NotBlank(message = "사업자번호(아이디)는 필수 입력값입니다.")
-	@Length(min=10 ,max=10, message="사업자번호(아이디)는 10자리 숫자 입니다.")
     private String com;
 	
 	@NotBlank(message = "기업명은 필수 입력 값입니다.")
@@ -28,6 +27,7 @@ public class CompanyFormDto {
     @NotEmpty(message = "이메일은 필수 입력 값입니다.")
     @Email(message = "이메일 형식으로 입력해주세요.")
     private String email;    
+    
     private String confirmEmail;
     
     private String tel;

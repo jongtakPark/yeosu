@@ -187,7 +187,15 @@ h1 {
 #section1 {
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
+    background-image: url(/images/section01_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+=======
     background-color: rgb(219,219,219);
+>>>>>>> origin/main
 }
 
 #section1>.intro {
@@ -202,24 +210,44 @@ h1 {
 }
 
 .section1_inner h2 {
+<<<<<<< HEAD
+    font-size: 40px;
+=======
     font-size: 35px;
+>>>>>>> origin/main
     color: #333;
 }
 
 .section1_inner h1 {
+<<<<<<< HEAD
+    font-size: 60px;
+=======
     font-size: 50px;
+>>>>>>> origin/main
     color: black;
     font-weight: bold;
 }
 
 .section1_content {
     width: 1280px;
+<<<<<<< HEAD
+    height: 706px;
+=======
     height: 530px;
+>>>>>>> origin/main
     background-color: #fff;
     /* position: absolute;
     left: 10%;
     top: 30%; */
     margin: 0 auto;
+<<<<<<< HEAD
+    margin-top: 10px;
+}
+.section1_content img{
+    width: 100%;
+    height: 100%;
+}
+=======
     margin-top: 40px;
 }
 
@@ -259,10 +287,23 @@ strong{
 .cont1 ul li:last-child span{
     top: -1px;
 } */
+>>>>>>> origin/main
 
 #section2 {
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
+    background-image: url(/images/section01_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+} 
+#section2>.intro{
+    margin: 0 auto;
+    position: relative;
+}
+=======
     /* background-image: url(images/section01_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -276,6 +317,7 @@ strong{
     position: relative;
 }
 
+>>>>>>> origin/main
 .section2_inner {
     /* position: absolute;
     top: 16%;
@@ -297,18 +339,42 @@ strong{
 
 .swiper-slide {
     text-align: center;
+<<<<<<< HEAD
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+=======
     font-size: 18px;
     background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
 
+>>>>>>> origin/main
 }
 
 
 .swiper-slide img {
     display: block;
     width: 100%;
+<<<<<<< HEAD
+    height: 100%;
+    object-fit: cover;
+}
+.swiper_btn{
+    width: 200px;
+    height: 550px;
+    background-color: #333;
+    margin-left: 1400px;
+    margin-top: 50px;
+    position: relative;
+}
+.swiper_btn>h2{
+    font-size: 40px;
+    color: #fff;
+=======
     height: 80%;
     object-fit: cover;
 }
@@ -399,6 +465,7 @@ strong{
 .swiper_btn>h2 {
     font-size: 35px;
     color: black;
+>>>>>>> origin/main
     font-weight: bold;
     padding-top: 130px;
 }

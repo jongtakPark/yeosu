@@ -13,7 +13,7 @@ import lombok.Data;
 public class MemberFormDto {
 	
 	@NotBlank(message = "아이디는 필수 입력 값입니다.")
-	@Length(min=5 ,max=20, message="아이디는 5자 이상 20자 이하로 입력해주세요.")
+	@Length(max=8, message="아이디는 8자 이하로 입력해주세요.")
     private String mid;
 	
 	@NotBlank(message = "이름은 필수 입력 값입니다.")

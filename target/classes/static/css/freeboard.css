@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .subMenu{
     margin-top: 10px;
     height: 50px;
@@ -22,7 +22,7 @@
 }
 
 
-/*    ÀÚÀ¯°Ô½ÃÆÇ*/
+/*    ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½*/
 .freeboard{
     width: 70%;
     height: 800px;
@@ -110,7 +110,7 @@ tr td:last-child{
     background-color: #eee;
     border: 1px solid #535353;
 }
-=======
+
 @charset "UTF-8";
     .subMenu{
         margin-top: 10px;
@@ -173,4 +173,11 @@ tr td:last-child{
     td{
         border-bottom: 1px solid black;
     }
->>>>>>> fb7be16ac0493007dd21f589f17c8193a30d04ed
+    
+	.pagebtn{		
+		text-align: center;
+		bottom: 60px;
+		position: absolute;
+	
+		width: 1250px;
+	}
