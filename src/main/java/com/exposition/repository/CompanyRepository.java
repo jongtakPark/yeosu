@@ -8,7 +8,7 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
 	
 	Company findByCom(String com);
 	boolean existsByCom(String com);
-	Company save(Company company);
+//	Company save(Company company);
 	
 
 }
