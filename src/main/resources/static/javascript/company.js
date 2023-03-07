@@ -4,6 +4,9 @@ var submitPw = false;
 var submitEmail = false;
   
   //기업회원 아이디(사업자번호)
+  
+ 
+  
 $("#com").blur(function(){
 		checkId();	
 	});
@@ -195,6 +198,12 @@ const autoHyphen = (target) => {
    .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
 }
 
+ const autoHyphen1 = (target) => {
+ target.value = target.value
+   .replace(/[^0-9]/g, '')
+   .replace(/^(\d{3})(\d{2})(\d{5})$/, `$1-$2-$3`);
+}
+
     
     function showErrorMsg(obj, msg) {
         obj.attr("class", "error");
@@ -225,7 +234,7 @@ $("#email").focus(function(){
 //ajax를 이용한 사업자번호 중복검사
 $(".com_ck").click(function(){
 	var cMsg = $("#comMsg");
-	var eMsg2 = $("#comMsg2");
+	var cMsg2 = $("#comMsg2");
 	var com = $("#com").val();
 	if(com==""){
 	showErrorMsg(cMsg,"필수 정보입니다.");
@@ -268,9 +277,9 @@ $(".com_ck").click(function(){
 });
 	
 $("#regist").click(function submitCheck(){
-	var eMsg = $("#midMsg");
+	var cMsg = $("#comMsg");
 	if(submitId == false){
-		showErrorMsg(eMsg,"아이디 중복검사를 해주세요.");
+		showErrorMsg(cMsg,"아이디 중복검사를 해주세요.");
 		return false;
 	}
 	var eMsg1 = $("#passwordMsg1");
