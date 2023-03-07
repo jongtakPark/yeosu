@@ -72,7 +72,8 @@ public class MemberController{
 	}
 	//기업 회원가입창으로 이동
 	@GetMapping(value="/company")
-	public String companySignUp() {
+	public String companySignUp(Model model) {
+		model.addAttribute("CompanyFormDto", new CompanyFormDto());
 		return "member/companySignUp";
 	}
 	//일반 회원가입창으로 이동

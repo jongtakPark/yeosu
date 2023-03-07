@@ -2,35 +2,33 @@
 var submitId = false;
 var submitPw = false;
 var submitEmail = false;
-
-//일반회원 아이디
-$("#mid").blur(function(){
+  
+  //기업회원 아이디(사업자번호)
+$("#com").blur(function(){
 		checkId();	
 	});
 	
     function checkId(){
 		
-		var mid = $("#mid").val();
-		var eMsg = $("#midMsg");
+		var com = $("#com").val();
+		var cMsg = $("#comMsg");
 		
-		if(mid==""){
-			showErrorMsg(eMsg,"필수 정보입니다.");
+		if(com==""){
+			showErrorMsg(cMsg,"필수 정보입니다.");
 			return false;
 		}
 		
-		var isID = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
-        if (!isID.test(mid)) {
-            showErrorMsg(eMsg,"5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.");
+		var isID = /^[0-9]{3}-[0-9]{2}-[0-9]{5}$/;
+        if (!isID.test(com)) {
+            showErrorMsg(cMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
             return false;
         } else {
-            eMsg.hide();
+            cMsg.hide();
         }
         return true;
     }
     
 
-
-   
 $("#name").blur(function(){
 		checkName();	
 	});
@@ -224,41 +222,40 @@ $("#email").focus(function(){
 	$("#fieldErrorEmail").hide()
 });
 
-
-//ajax를 이용한 아이디 중복검사
-$(".mid_ck").click(function(){
-	var eMsg = $("#midMsg");
-	var eMsg2 = $("#midMsg2");
-	var mid = $("#mid").val();
-	if(mid==""){
-	showErrorMsg(eMsg,"필수 정보입니다.");
+//ajax를 이용한 사업자번호 중복검사
+$(".com_ck").click(function(){
+	var cMsg = $("#comMsg");
+	var eMsg2 = $("#comMsg2");
+	var com = $("#com").val();
+	if(com==""){
+	showErrorMsg(cMsg,"필수 정보입니다.");
 	return false;
 	}
-	var isID = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
-        if (!isID.test(mid)) {
-            showErrorMsg(eMsg,"5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.");
+	var isID = /^[0-9]{3}-[0-9]{2}-[0-9]{5}$/;
+        if (!isID.test(com)) {
+            showErrorMsg(cMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
             return false;
         } else {
-            eMsg.hide();
+            cMsg.hide();
             $.ajax({
 				type: "get",
-				url: "/signup/exists",
-				data : { "mid" : mid },
+				url: "/signup/exists1",
+				data : { "com" : com },
 				contentType: "application/json",
 					success: function(result){
 						if(result.result == false){
-							if (!isID.test(mid)) {
-            					showErrorMsg(eMsg,"5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.");
+							if (!isID.test(com)) {
+            					showErrorMsg(cMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
             					return false;
        						 } else{
-							showSuccMsg(eMsg2,"사용할 수 있는 아이디입니다.");
-							eMsg.hide();
+							showSuccMsg(cMsg2,"사용할 수 있는 아이디(사업자번호)입니다.");
+							cMsg.hide();
 							submitId = true;
 							}
 						}
 					else{
-							showErrorMsg(eMsg,"사용할 수 없는 아이디입니다.");
-							eMsg2.hide();
+							showErrorMsg(cMsg,"사용할 수 없는 아이디(사업자번호)입니다.");
+							cMsg2.hide();
 					}
 					},
 					error : function(){
@@ -269,7 +266,6 @@ $(".mid_ck").click(function(){
         return true;
 
 });
-
 	
 $("#regist").click(function submitCheck(){
 	var eMsg = $("#midMsg");
@@ -289,3 +285,5 @@ $("#regist").click(function submitCheck(){
 	}
 	return true;
 });
+    
+    
