@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Company</title>
+<link rel="stylesheet" th:href="@{/css/companySignUp.css}">
+</head> 
+<body>
+    <div layout:fragment="content">
+        <div class="main_membership">
+            <div class="title_membership">
+                <span>회원가입</span>
+            </div>
+            <div class="title_ent">
+                <span>기업회원</span>
+            </div>
+             <div class="com_a">
+                 <div class="com_id"><span>아이디(사업자번호)</span></div>
+                 <div><input  class="com_tex" type="text" placeholder="  아이디을 입력해주세요"></div>
+                 <div class="com_id_ck"><span><a href="#">중복검사</a></span></div>
+             </div>
+             
+            <div class="com_b">
+                 <div class="com_pw"><span>비밀번호</span></div>
+                 <div><input class="com_tex" type="password" placeholder="  비밀번호을 입력해주세요"></div>
+             </div>
+             
+             <div class="com_c">
+                 <div class="com_pw_ck"><span>비밀번호확인</span></div>
+                 <div><input class="com_tex" type="password" placeholder="  비밀번호을 입력해주세요"></div>
+             </div>
+             
+             <div class="com_d">
+                 <div class="com_pw_ck"><span>기업명</span></div>
+                 <div><input class="com_tex" type="text" placeholder="  기업명을 입력해주세요"></div>
+             </div>
+             
+             <div class="com_e">
+                 <div class="com_mail"><span>이메일</span></div>
+                 <div><input class="com_tex" type="email" placeholder="  이메일을 입력해주세요"></div>
+                 <div class="com_mail_send"><span><a href="#">인증번호 발송</a></span></div>
+             </div>
+             
+             <div class="com_f">
+                <div class="com_mail_a"><span></span></div>
+                 <div><input class="com_tex" type="email" placeholder="  인증번호를 입력해주세요"></div>
+                 <div class="com_mail_ck"><span><a href="#">인증확인</a></span></div>
+             </div>
+             
+             <div class="com_g">
+                 <div class="com_tel"><span>전화번호</span></div>
+                 <div><input class="com_tex" type="tel" placeholder="  전화번호를 입력해주세요"></div>
+             </div>
+             
+             <div class="regist"><a href="#">가입하기</a></div>
+        </div>
+        
+        
+    </div>
+
+
+</body>
+
+</html>
