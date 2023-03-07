@@ -68,7 +68,7 @@ public class Company {
 		company.setConfirmPassword(comfirmPw);
 		company.setEmail(companyFormDto.getEmail());
 		company.setTel(companyFormDto.getTel());
-//		company.setRole(Role.ADMIN);
+		company.setRole(Role.COMPANY);
 		return company;
 	}
 	
