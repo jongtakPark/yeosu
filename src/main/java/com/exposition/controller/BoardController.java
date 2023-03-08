@@ -103,11 +103,9 @@ public class BoardController {
 	@PutMapping(value="/modcomplete/{id}")
 	public String modComplete(@PathVariable("id") Long id, @RequestParam("title") String title, @RequestParam("content") String content, FreeBoardDto freeBoardDto, Model model) {
 		FreeBoard freeBoard = boardService.updateBoard(id);
-		System.out.println(freeBoard);
 		freeBoardDto.setTitle(title);
 		freeBoardDto.setContent(content);
 		freeBoardDto.setId(id);
-		System.out.println(freeBoardDto);
 		freeBoard = FreeBoard.createfreeBoard(freeBoardDto);
 		boardService.saveBoard(freeBoard);
 		// model.addAttribute("freeboard",boardService.boardList()));

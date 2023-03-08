@@ -56,7 +56,7 @@ layout:decorate="~{layouts/layout}">
                     <input type="radio" name="ck2"   />매우불만족<br>
                 </div>
                 <div class="submit">
-                    <a href="#">제출하기</a>
+                    <a th:href="@{/signup/change/{id}(id=${session.id})}">제출하기</a>
                 </div>
             </div>
         </div>

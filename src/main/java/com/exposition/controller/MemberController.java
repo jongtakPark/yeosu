@@ -1,19 +1,20 @@
 package com.exposition.controller;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,9 +39,9 @@ public class MemberController{
 	private final PasswordEncoder passwordEncoder;
 	
 	@PostConstruct
-	//관리자 계정 생성
+	//계정 생성
 	private void createAdmin() {
-		
+		//관리자
 		boolean check = memberService.checkMidDuplicate("admin");
 		if (check)
 			return;
@@ -54,7 +55,25 @@ public class MemberController{
 		member.setPasswoad(password);
 		member.setRole(Role.ADMIN);
 		memberService.saveMember(member);
+		
+		for(int i = 2; i < 4 ; i++) {
+			check = memberService.checkMidDuplicate(String.valueOf(i));
+			if (check)
+				return;
+			memberFormDto.setMid("user" + String.valueOf(i));
+			memberFormDto.setPassword(String.valueOf(i));
+			memberFormDto.setName("사용자"+i);
+			memberFormDto.setEmail("User"+i+"@userEmail.com");
+			member = Member.createMember(memberFormDto, passwordEncoder);
+			String password1 = passwordEncoder.encode(memberFormDto.getPassword());
+			member.setPasswoad(password1);
+			member.setRole(Role.USER);
+			memberService.saveMember(member);
+		}
+		
 	}
+	
+	
 	
 	//로그인창으로 이동
 	@RequestMapping(value="/login", method= {RequestMethod.POST, RequestMethod.GET})
@@ -130,18 +149,27 @@ public class MemberController{
 	}
 	
 	//ajax를 이용한 사업자번호 중복검사
-		@GetMapping(value="/existscom")
-		@ResponseBody
-		public HashMap<String, Object> checkComDuplicate(String com){
-			HashMap<String, Object> map = new HashMap<>();
-			map.put("result", companyService.checkComDuplicate(com));
-			return map;
-		}
+	@GetMapping(value="/existscom")
+	@ResponseBody
+	public HashMap<String, Object> checkComDuplicate(String com){
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("result", companyService.checkComDuplicate(com));
+		return map;
+	}
 
 	// 아이디/비밀번호 찾기창으로 이동
 	@GetMapping(value="/findidpw")
 	public String findIdPw() {
 		return "member/findIdPw";
 	}
-	
+	//문제 없이 잘 작동하지만 member테이블의 id를 가져오려면 id가 바인딩 되어 있어야 함.
+	//설문게시판 페이지 넘어갈 때 session에 member id를 바인딩 해야함.
+	//권환 변경 USER -> VOLUNTEER
+	@GetMapping(value="/change/{id}")
+	public String changeRole(@PathVariable("id") Long id, Model model, Optional<Member> member) {
+		member = memberService.findById(id);
+		member.get().setRole(Role.VOLUNTEER);
+		memberService.updateMember(member.get());
+		return "redirect:/";
+	}
 }
