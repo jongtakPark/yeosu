@@ -31,9 +31,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.
 		formLogin().loginPage("/signup/login").defaultSuccessUrl("/")
 		.usernameParameter("mid")
+<<<<<<< HEAD
+=======
+//		.usernameParameter("com")
+>>>>>>> a8f44daf2ef481fbe400a61782fc97135b09f04f
 		.passwordParameter("password")
 		.failureUrl("/signup/login/error")
-		.and()
+		.and()		
 		.logout().logoutUrl("signup/logout").logoutRequestMatcher(new AntPathRequestMatcher("/signup/logout")).logoutSuccessUrl("/");		
 //		.and()
 //		.authorizeRequests()
@@ -56,10 +60,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		auth
 		.userDetailsService(memberService)
-		.passwordEncoder(passwordEncoder())
-		.and()
-		.userDetailsService(companyService)
 		.passwordEncoder(passwordEncoder());
+//		.and()
+//		.userDetailsService(companyService)
+//		.passwordEncoder(passwordEncoder());
 	}
 	
 	

@@ -149,6 +149,7 @@ public class MemberController{
 	}
 	
 	//ajax를 이용한 사업자번호 중복검사
+<<<<<<< HEAD
 	@GetMapping(value="/existscom")
 	@ResponseBody
 	public HashMap<String, Object> checkComDuplicate(String com){
@@ -156,6 +157,15 @@ public class MemberController{
 		map.put("result", companyService.checkComDuplicate(com));
 		return map;
 	}
+=======
+		@GetMapping(value="/existscom")
+		@ResponseBody
+		public HashMap<String, Object> checkComDuplicate(String mid){
+			HashMap<String, Object> map = new HashMap<>();
+			map.put("result", companyService.checkComDuplicate(mid));
+			return map;
+		}
+>>>>>>> a8f44daf2ef481fbe400a61782fc97135b09f04f
 
 	// 아이디/비밀번호 찾기창으로 이동
 	@GetMapping(value="/findidpw")
