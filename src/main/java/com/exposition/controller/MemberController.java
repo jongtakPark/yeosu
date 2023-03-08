@@ -132,9 +132,9 @@ public class MemberController{
 	//ajax를 이용한 사업자번호 중복검사
 		@GetMapping(value="/existscom")
 		@ResponseBody
-		public HashMap<String, Object> checkComDuplicate(String com){
+		public HashMap<String, Object> checkComDuplicate(String mid){
 			HashMap<String, Object> map = new HashMap<>();
-			map.put("result", companyService.checkComDuplicate(com));
+			map.put("result", companyService.checkComDuplicate(mid));
 			return map;
 		}
 

@@ -26,25 +26,25 @@ public class CompanyService implements UserDetailsService {
 	}
 	//회원 중복검사
 	private void validateDuplicateCompany(Company company) {
-		Company findCompany = companyRepository.findByCom(company.getCom());
+		Company findCompany = companyRepository.findByMid(company.getMid());
 		if(findCompany != null) {
 			throw new IllegalStateException("이미 가입된 회원입니다");
 		}	
 	}
 	//ajax를 이용한 중복검사
-	public boolean checkComDuplicate(String com) {
-		return companyRepository.existsByCom(com);
+	public boolean checkComDuplicate(String mid) {
+		return companyRepository.existsByCom(mid);
 	}
 	//로그인
 	@Override
-	public UserDetails loadUserByUsername(String com) throws UsernameNotFoundException{
+	public UserDetails loadUserByUsername(String mid) throws UsernameNotFoundException{
 		
-		Company company = companyRepository.findByCom(com);
+		Company company = companyRepository.findByMid(mid);
 		if(company==null) {
-			throw new UsernameNotFoundException(com);
+			throw new UsernameNotFoundException(mid);
 		}
 		
-		return User.builder().username(company.getCom()).password(company.getPasswoad()).roles(company.getRole().toString()).build();
+		return User.builder().username(company.getMid()).password(company.getPasswoad()).roles(company.getRole().toString()).build();
 		
 	}
 

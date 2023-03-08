@@ -7,26 +7,26 @@ var submitEmail = false;
   
  
   
-$("#com").blur(function(){
+$("#mid").blur(function(){
 		checkId();	
 	});
 	
     function checkId(){
 		
-		var com = $("#com").val();
-		var cMsg = $("#comMsg");
+		var mid = $("#mid").val();
+		var eMsg = $("#midMsg");
 		
-		if(com==""){
-			showErrorMsg(cMsg,"필수 정보입니다.");
+		if(mid==""){
+			showErrorMsg(eMsg,"필수 정보입니다.");
 			return false;
 		}
 		
 		var isID = /^[0-9]{3}-[0-9]{2}-[0-9]{5}$/;
-        if (!isID.test(com)) {
-            showErrorMsg(cMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
+        if (!isID.test(mid)) {
+            showErrorMsg(eMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
             return false;
         } else {
-            cMsg.hide();
+            eMsg.hide();
         }
         return true;
     }
@@ -96,7 +96,7 @@ $("#password2").blur(function(){
             eMsg2.hide();
             return false;
         } else {
-            showSuccMsg(eMsg2,"비밀번호가 일치합니다.");
+            showSuceMsg(eMsg2,"비밀번호가 일치합니다.");
             eMsg1.hide();
             submitPw = true;
             return false;
@@ -135,7 +135,7 @@ $("#emailsend").click(function(){
 			url: "/mail/sendmail",
 			data : { "email" : email },
 			success : function(result){
-				showSuccMsg(eMsg2,"인증번호를 입력해주세요.");
+				showSuceMsg(eMsg2,"인증번호를 입력해주세요.");
 			},
 			error : function(){
 				showErrorMsg(eMsg,"이메일 발송에 실패하였습니다. 이메일 정보를 다시 확인해주세요.");
@@ -154,7 +154,7 @@ $("#emailcheck").click(function(){
 		data : { "emailcode" : emailcode },
 		success : function(result){
 			if(result.result == true) {
-				showSuccMsg(eMsg2,"인증번호가 일치합니다");
+				showSuceMsg(eMsg2,"인증번호가 일치합니다");
 				submitEmail = true;
 				eMsg.hide();
 			} else {
@@ -198,7 +198,7 @@ const autoHyphen = (target) => {
    .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
 }
 
- const autoHyphen1 = (target) => {
+// const autoHyphen1 = (target) => {
  target.value = target.value
    .replace(/[^0-9]/g, '')
    .replace(/^(\d{3})(\d{2})(\d{5})$/, `$1-$2-$3`);
@@ -211,14 +211,14 @@ const autoHyphen = (target) => {
         obj.show();
     }
     
-    function showSuccMsg(obj, msg) {
+    function showSuceMsg(obj, msg) {
         obj.attr("class", "succ");
         obj.html(msg);
         obj.show();
     }
 
 //유효성 검사 이후 나온 error 메시지 감추기
-$("#com").focus(function(){
+$("#mid").focus(function(){
 	$("#fieldErrorMid").hide()
 });
 $("#password").focus(function(){
@@ -232,39 +232,39 @@ $("#email").focus(function(){
 });
 
 //ajax를 이용한 사업자번호 중복검사
-$(".com_ck").click(function(){
-	var cMsg = $("#comMsg");
-	var cMsg2 = $("#comMsg2");
-	var com = $("#com").val();
-	if(com==""){
-	showErrorMsg(cMsg,"필수 정보입니다.");
+$(".mid_ck").click(function(){
+	var eMsg = $("#midMsg");
+	var eMsg2 = $("#midMsg2");
+	var mid = $("#mid").val();
+	if(mid==""){
+	showErrorMsg(eMsg,"필수 정보입니다.");
 	return false;
 	}
 	var isID = /^[0-9]{3}-[0-9]{2}-[0-9]{5}$/;
-        if (!isID.test(com)) {
-            showErrorMsg(cMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
+        if (!isID.test(mid)) {
+            showErrorMsg(eMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
             return false;
         } else {
-            cMsg.hide();
+            eMsg.hide();
             $.ajax({
 				type: "get",
-				url: "/signup/existscom",
-				data : { "com" : com },
+				url: "/signup/existsmid",
+				data : { "mid" : mid },
 				contentType: "application/json",
 					success: function(result){
 						if(result.result == false){
-							if (!isID.test(com)) {
-            					showErrorMsg(cMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
+							if (!isID.test(mid)) {
+            					showErrorMsg(eMsg,"유효한 사업자 번호를 입력 해 주세요(숫자10자리).");
             					return false;
        						 } else{
-							showSuccMsg(cMsg2,"사용할 수 있는 아이디(사업자번호)입니다.");
-							cMsg.hide();
+							showSuceMsg(eMsg2,"사용할 수 있는 아이디(사업자번호)입니다.");
+							eMsg.hide();
 							submitId = true;
 							}
 						}
 					else{
-							showErrorMsg(cMsg,"사용할 수 없는 아이디(사업자번호)입니다.");
-							cMsg2.hide();
+							showErrorMsg(eMsg,"사용할 수 없는 아이디(사업자번호)입니다.");
+							eMsg2.hide();
 					}
 					},
 					error : function(){
@@ -277,9 +277,9 @@ $(".com_ck").click(function(){
 });
 	
 $("#regist").click(function submitCheck(){
-	var cMsg = $("#comMsg");
+	var eMsg = $("#midMsg");
 	if(submitId == false){
-		showErrorMsg(cMsg,"아이디 중복검사를 해주세요.");
+		showErrorMsg(eMsg,"아이디 중복검사를 해주세요.");
 		return false;
 	}
 	var eMsg1 = $("#passwordMsg1");
@@ -294,5 +294,3 @@ $("#regist").click(function submitCheck(){
 	}
 	return true;
 });
-    
-    

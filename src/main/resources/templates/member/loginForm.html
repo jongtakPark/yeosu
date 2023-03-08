@@ -20,17 +20,9 @@ layout:decorate="~{layouts/layout}">
                 <input type="password" placeholder="비밀번호" class="login_pw" name="password"><br>
                 <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
                 <div class="login">
-                    <button>로그인</button>
+                    <button>로그인</button>                   
                     
-                    
-                    <form method="post" action="/signup/login">
-
-            <input type="text" placeholder="아이디" class="login_id" name="com" ><br>
-
-                <input type="password" placeholder="비밀번호" class="login_pw" name="password"><br>
-                <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
-                <div class="login">
-                    <button>로그인</button>
+                  
                 </div>
                 <div class="findlogin">
                     <span class="find_idpw"><a href="/signup/findidpw">아이디/비밀번호 찾기</a></span>

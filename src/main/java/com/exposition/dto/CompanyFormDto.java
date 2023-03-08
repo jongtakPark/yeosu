@@ -13,7 +13,7 @@ import lombok.Data;
 public class CompanyFormDto {
 	
 	@NotBlank(message = "사업자번호(아이디)는 필수 입력값입니다.")
-    private String com;
+    private String mid;
 	
 	@NotBlank(message = "기업명은 필수 입력 값입니다.")
 	private String name;
