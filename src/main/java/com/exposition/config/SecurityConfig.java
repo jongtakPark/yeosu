@@ -2,6 +2,8 @@ package com.exposition.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,18 +20,21 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	private final MemberService memberService;
-	private final CompanyService companyservice;
+	private final CompanyService companyService;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.
 		formLogin().loginPage("/signup/login").defaultSuccessUrl("/")
-		.usernameParameter("mid").passwordParameter("password").failureUrl("/signup/login/error")
+		.usernameParameter("mid")
+		.passwordParameter("password")
+		.failureUrl("/signup/login/error")
 		.and()
-		.logout().logoutUrl("signup/logout").logoutRequestMatcher(new AntPathRequestMatcher("/signup/logout")).logoutSuccessUrl("/");
+		.logout().logoutUrl("signup/logout").logoutRequestMatcher(new AntPathRequestMatcher("/signup/logout")).logoutSuccessUrl("/");		
 //		.and()
 //		.authorizeRequests()
 //		.mvcMatchers("/").permitAll() // 모든 사용자 인증없이 해당경로에 접근하도록 설정
@@ -40,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //		.authenticationEntryPoint(new CustomAuthenticationEntryPoint());
 	}
 	
+	
 	//비밀번호 인코딩
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -48,7 +54,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-		auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
-	}	
+		auth
+		.userDetailsService(memberService)
+		.passwordEncoder(passwordEncoder())
+		.and()
+		.userDetailsService(companyService)
+		.passwordEncoder(passwordEncoder());
+	}
+	
+	
 	
 }

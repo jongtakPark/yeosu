@@ -40,13 +40,13 @@ public class FreeBoard extends BaseEntity{
 //	private int viewCnt;
 	
 
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "member_id")
-	private Member member;
-	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "company_id")
-	private Company company;
+//	@ManyToOne(optional = false)
+//	@JoinColumn(name = "member_id")
+//	private Member member;
+//	
+//	@ManyToOne(optional = false)
+//	@JoinColumn(name = "company_id")
+//	private Company company;
 
 
 
@@ -55,6 +55,7 @@ public class FreeBoard extends BaseEntity{
 		FreeBoard freeBoard = new FreeBoard();
 		freeBoard.setTitle(freeBoardDto.getTitle());
 		freeBoard.setContent(freeBoardDto.getContent());
+		freeBoard.setId(freeBoardDto.getId());
 		return freeBoard;
 	}
 }

@@ -41,6 +41,7 @@ public class Member {
 	
 	@NotNull
 	private String passwoad;
+	
 	@Transient
     private String confirmPassword;
 	
@@ -65,6 +66,7 @@ public class Member {
 		member.setMid(memberFormDto.getMid());
 		member.setName(memberFormDto.getName());
 		String password = passwordEncoder.encode(memberFormDto.getPassword());
+		
 		member.setPasswoad(password);
 //		String comfirmPw = passwordEncoder.encode(memberFormDto.getConfirmPassword());
 //		member.setConfirmPassword(comfirmPw);

@@ -1,5 +1,7 @@
 package com.exposition.service;
 
+import java.util.Optional;
+
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -45,6 +47,14 @@ public class MemberService implements UserDetailsService {
 		}
 		
 		return User.builder().username(member.getMid()).password(member.getPasswoad()).roles(member.getRole().toString()).build();
-		
+	}
+	
+	//유저 찾기
+	public Optional<Member> findById(Long id) {
+		return memberRepository.findById(id);
+	}
+	//유저 회원 변경(권한)
+	public Member updateMember(Member member) {
+		return memberRepository.save(member);
 	}
 }

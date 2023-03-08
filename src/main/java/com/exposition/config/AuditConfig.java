@@ -12,5 +12,5 @@ public class AuditConfig {
 	public AuditorAware<String> auditorProvider() { // 등록자와 수정자를 처리해주는 AuditorAware를 빈으로 등록한다.
 		return new AuditorAwareImpl();
 	}
-
+	
 }
